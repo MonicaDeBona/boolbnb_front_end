@@ -51,6 +51,12 @@
                 <p class="card-text pt-4 mb-4">
                     {{ apartment.square_meters}}
                 </p>
+
+                <span class="fw-bold me-2">
+                    <a class="btn btn-disabled rounded-pill fw-bold me-2 mb-1"  v-for="service in apartment.services">
+                        {{service.name}}
+                    </a>
+                </span>
             </div>
         </div>   
 </template>
