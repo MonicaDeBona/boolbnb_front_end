@@ -1,12 +1,10 @@
 <script>
-//import AppMain from './components/AppMain.vue';
-import ApartmentComponent from './components/Apartmentcomponent.vue'
+import AppHeader from './components/AppHeader.vue';
 
 export default {
   name: 'AppVue',
   components: {
-    //AppMain,
-    ApartmentComponent,
+    AppHeader,
 },
   data() {
     return {
@@ -17,8 +15,8 @@ export default {
 </script>
 
 <template>
-  <ApartmentComponent/>
-
+  <AppHeader/>
+  <router-view></router-view>
 </template>
 
 <style lang="scss">

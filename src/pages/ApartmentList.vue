@@ -1,6 +1,6 @@
 <script>
 //importo il component dei progetti
-    import ApartmentComponent from '../pages/ApartmentList.vue';
+import ApartmentComponent from '../components/ApartmentComponent.vue'
 //importo axios
     import axios from 'axios';
 
@@ -52,7 +52,7 @@ export default {
             <div class="card-wrapper">
             <!--Qui andranno le card-->
             
-                <ApartmentComponent 
+                <ApartmentComponent
                     v-for="apartmentElement in apartments" :apartment="apartmentElement"
                 />
             </div>
