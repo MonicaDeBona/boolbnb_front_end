@@ -23,7 +23,7 @@ export default {
         getApartments(){
             axios.get(this.urlAddress, {
                 params: {
-                    //
+                    
                 }
             })
             .then((response) => {
