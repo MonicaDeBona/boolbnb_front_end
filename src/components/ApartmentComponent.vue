@@ -11,8 +11,14 @@
             'isShow': {
                 type: Boolean,
                 required: false,
-                default: false,
-        },
+                default: false, 
+            },
+
+            'imagePath': {
+                type: String,
+                required: true
+            },
+
         data () {
         return {
         //
@@ -30,7 +36,8 @@
 
             <div class="card-body m-3">
                 
-                <img :src="apartment.image" class="img-thumbnail" :alt="apartment.title">
+                <img v-if="!apartment.image.startsWith('uploads')" :src="imagePath+'/img/'+apartment.image" class="img-thumbnail" :alt="apartment.title">
+                <img v-else :src="imagePath+'/storage/'+apartment.image" class="img-thumbnail" :alt="apartment.title">
 
                 <p class="card-text pt-4 mb-4">
                     {{ apartment.address }}
