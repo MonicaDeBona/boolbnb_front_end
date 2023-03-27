@@ -54,10 +54,8 @@ export default {
             <h1 class="text-center py-3">Apartments in {{ store.searchQuery.toUpperCase() }}</h1>
             <div class="row justify-content-between align-items-center">
                 <!--Qui andranno le card-->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <ApartmentComponent v-for="apartmentElement in this.store.apartments" :apartment="apartmentElement"
-                        :imagePath="urlAddress" />
-                </div>
+                <ApartmentComponent v-for="apartmentElement in this.store.apartments" :apartment="apartmentElement"
+                    :imagePath="urlAddress" />
             </div>
         </div>
     </section>
