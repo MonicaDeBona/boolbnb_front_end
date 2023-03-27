@@ -15,13 +15,13 @@ export default {
         return {
             apartments: [],
             loading: false,
-            urlAddress: 'http://127.0.0.1:8000/api/apartments/',
+            urlAddress: 'http://127.0.0.1:8000',
         }
     },
 
     methods: {
         getApartments(){
-            axios.get(this.urlAddress, {
+            axios.get(this.urlAddress + '/api/apartments/', {
                 params: {
                     
                 }
@@ -53,7 +53,7 @@ export default {
             <!--Qui andranno le card-->
             
                 <ApartmentComponent
-                    v-for="apartmentElement in apartments" :apartment="apartmentElement"
+                    v-for="apartmentElement in apartments" :apartment="apartmentElement" :imagePath="urlAddress"
                 />
             </div>
 
