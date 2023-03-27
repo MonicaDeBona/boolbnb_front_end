@@ -52,30 +52,32 @@ export default {
             <SearchComponent @searchApartments="searchApartments"/>
 
             <h1 class="pb-5 text-center pt-5">Apartments in {{ store.searchQuery.toUpperCase() }}</h1>
-            <div class="card-wrapper">
+            <div class="row">
                 <!--Qui andranno le card-->
-                <ApartmentComponent v-for="apartmentElement in this.store.apartments" :apartment="apartmentElement"
-                    :imagePath="urlAddress" />
+                <div class="col-12 col-md-6 col-lg-4">
+                    <ApartmentComponent v-for="apartmentElement in this.store.apartments" :apartment="apartmentElement"
+                        :imagePath="urlAddress" />
+                </div>
             </div>
         </div>
     </section>
 </template>
 
 <style lang="scss" scoped>
-.card-wrapper {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-.single-card {
-    width: calc(100% / 3 - 2rem);
-    margin: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-radius: 30px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-}
+// .card-wrapper {
+//     display: flex;
+//     justify-content: center;
+//     flex-wrap: wrap;
+// }
+// .single-card {
+//     width: calc(100% / 3 - 2rem);
+//     margin: 1rem;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+//     border-radius: 30px;
+//     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+// }
 </style>
 
 

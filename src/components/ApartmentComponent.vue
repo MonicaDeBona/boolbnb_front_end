@@ -29,13 +29,12 @@ export default {
 </script>
 
 <template>
-    <div class="card text-center mb-3 single-card p-3">
-        <h2 class="card-title fw-bold pt-2">
+    <div class="flat_card rounded-3 mb-3 p-3">
+        <h2 class="fw-bold pt-2">
             {{ apartment.title }}
         </h2>
 
-        <div class="card-body m-3">
-
+        <div>
             <img v-if="!apartment.image.startsWith('uploads')" :src="imagePath + '/img/' + apartment.image"
                 class="img-thumbnail" :alt="apartment.title">
             <img v-else :src="imagePath + '/storage/' + apartment.image" class="img-thumbnail" :alt="apartment.title">
@@ -70,8 +69,9 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.card {
+.flat_card {
     border-radius: 30px;
+    border: 1px solid grey;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 
     img {
@@ -87,4 +87,6 @@ export default {
 
 a {
     border: 1px solid black;
-}</style>
+}
+
+</style>
