@@ -7,59 +7,59 @@ export default {
     components: {
         ApartmentComponent,
     },
-    data() {
-        return {
-            apartments: [],
-            loading: false,
-            urlAddress: "http://127.0.0.1:8000",
-            searchQuery: "",
-        };
-    },
-    methods: {
-        getApartments() {
-            axios
-                .get(this.urlAddress + "/api/apartments/", {})
-                .then((response) => {
-                    this.apartments = response.data.results;
-                })
-                .catch((error) => {
-                    console.warn(error);
-                });
-        },
-        searchApartments() {
-            axios
-                .get(this.urlAddress + "/api/apartments/", {
-                    params: {
-                        address: this.searchQuery,
-                    },
-                })
-                .then((response) => {
-                    this.apartments = response.data.results;
-                })
-                .catch((error) => {
-                    console.warn(error);
-                });
-        },
-    },
-    created() {
-        this.getApartments();
-    },
+    // data() {
+    //     return {
+    //         apartments: [],
+    //         loading: false,
+    //         urlAddress: "http://127.0.0.1:8000",
+    //         searchQuery: "",
+    //     };
+    // },
+    // methods: {
+    //     getApartments() {
+    //         axios
+    //             .get(this.urlAddress + "/api/apartments/", {})
+    //             .then((response) => {
+    //                 this.apartments = response.data.results;
+    //             })
+    //             .catch((error) => {
+    //                 console.warn(error);
+    //             });
+    //     },
+    //     searchApartments() {
+    //         axios
+    //             .get(this.urlAddress + "/api/apartments/", {
+    //                 params: {
+    //                     address: this.searchQuery,
+    //                 },
+    //             })
+    //             .then((response) => {
+    //                 this.apartments = response.data.results;
+    //             })
+    //             .catch((error) => {
+    //                 console.warn(error);
+    //             });
+    //     },
+    // },
+    // created() {
+    //     this.getApartments();
+    // },
 };;
 </script>
 <template>
     <section>
         <div class="container">
-            <div class="row mb-3">
-                <div class="col-12">
-                    <form @submit.prevent="searchApartments">
-                        <div class="input-group">
-                            <input v-model="searchQuery" type="text" class="form-control"
-                                placeholder="Search for an address or city" />
-                            <button type="submit" class="btn btn-primary">Search</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            <!-- <div class="row mb-3">
+                    <div class="col-12">
+                        <form @submit.prevent="searchApartments">
+                            <div class="input-group">
+                                <input v-model="searchQuery" type="text" class="form-control"
+                                    placeholder="Search for an address or city" />
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </div>
+                        </form>
+                    </div>
+                </div> -->
 
             <h1 class="pb-5 text-center pt-5">Apartments list:</h1>
 
