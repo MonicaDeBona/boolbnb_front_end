@@ -1,8 +1,6 @@
 <script>
 import ApartmentComponent from "../components/ApartmentComponent.vue";
 import axios from "axios";
-import { store } from '../store.js'
-
 export default {
     name: "ApartmentList",
     components: {
@@ -10,11 +8,10 @@ export default {
     },
     data() {
         return {
-            store,
-            // apartments: [],
+            apartments: [],
             loading: false,
             urlAddress: "http://127.0.0.1:8000",
-            // searchQuery: "",
+            searchQuery: "",
         };
     },
     methods: {
@@ -22,57 +19,52 @@ export default {
             axios
                 .get(this.urlAddress + "/api/apartments/", {})
                 .then((response) => {
-                    this.store.apartments = response.data.results;
+                    this.apartments = response.data.results;
                 })
                 .catch((error) => {
                     console.warn(error);
                 });
         },
-        searchApartments(searchQuery) {
-            console.log(searchQuery)
+        searchApartments() {
             axios
                 .get(this.urlAddress + "/api/apartments/", {
                     params: {
-                        address: searchQuery,
+                        address: this.searchQuery,
                     },
-
                 })
                 .then((response) => {
-                    this.store.apartments = response.data.results;
+                    this.apartments = response.data.results;
                 })
                 .catch((error) => {
                     console.warn(error);
                 });
-
         },
     },
     created() {
         this.getApartments();
-    },
+    }
 };
 </script>
+
 <template>
     <section>
         <div class="container">
-            <!-- <div class="row mb-3">
-                                                                                        <div class="col-12">
-                                                                                            <form @submit.prevent="searchApartments">
-                                                                                                <div class="input-group">
-                                                                                                    <input v-model="searchQuery" type="text" class="form-control"
-                                                                                                        placeholder="Search for an address or city" />
-                                                                                                    <button type="submit" class="btn btn-primary">Search</button>
-                                                                                                </div>
-                                                                                            </form>
-                                                                                        </div>
-                                                                                    </div> -->
-
+            <div class="row mb-3">
+                <div class="col-12">
+                    <form @submit.prevent="searchApartments">
+                        <div class="input-group">
+                            <input v-model="searchQuery" type="text" class="form-control"
+                                placeholder="Search for an address or city" />
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
             <h1 class="pb-5 text-center pt-5">Apartments list:</h1>
-
             <div class="card-wrapper">
                 <!--Qui andranno le card-->
-                <ApartmentComponent v-for="apartmentElement in store.apartments" :apartment="apartmentElement"
+                <ApartmentComponent v-for="apartmentElement in apartments" :apartment="apartmentElement"
                     :imagePath="urlAddress" />
-
             </div>
         </div>
     </section>
@@ -84,7 +76,6 @@ export default {
     justify-content: center;
     flex-wrap: wrap;
 }
-
 .single-card {
     width: calc(100% / 3 - 2rem);
     margin: 1rem;
