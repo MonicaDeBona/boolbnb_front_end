@@ -51,8 +51,8 @@ export default {
         <div class="container">
             <SearchComponent @searchApartments="searchApartments"/>
 
-            <h1 class="pb-5 text-center pt-5">Apartments in {{ store.searchQuery.toUpperCase() }}</h1>
-            <div class="row">
+            <h1 class="text-center py-3">Apartments in {{ store.searchQuery.toUpperCase() }}</h1>
+            <div class="row justify-content-between align-items-center">
                 <!--Qui andranno le card-->
                 <div class="col-12 col-md-6 col-lg-4">
                     <ApartmentComponent v-for="apartmentElement in this.store.apartments" :apartment="apartmentElement"
@@ -64,11 +64,11 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-// .card-wrapper {
-//     display: flex;
-//     justify-content: center;
-//     flex-wrap: wrap;
-// }
+.card-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 // .single-card {
 //     width: calc(100% / 3 - 2rem);
 //     margin: 1rem;
