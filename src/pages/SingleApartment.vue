@@ -51,10 +51,9 @@ export default {
 
 <template>
 
-    <section>
+    <section class="container">
 
-        <ApartmentComponent v-for="apartmentElement in this.store.apartments" :apartment="apartmentElement"
-                    :imagePath="urlAddress" />
+        <ApartmentComponent :apartment="this.store.apartment" :isShow="true" :imagePath="urlAddress"/>
 
         <!-- <div class="flat_card rounded-3 mb-3 p-3">
             <div>
@@ -98,7 +97,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.card-wrapper {
+.container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
