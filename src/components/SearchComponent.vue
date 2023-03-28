@@ -1,7 +1,6 @@
 
 <script>
 import { store } from '../store'
-import axios from 'axios';
 
 export default {
     name: "SearchComponent",
@@ -9,9 +8,45 @@ export default {
         return {
             store,
             urlAddress: "http://127.0.0.1:8000",
-        }
+            ttSearchBox: null,
+        };
     },
-}
+    mounted() {
+        this.searchOptions();
+    },
+    methods: {
+        searchOptions() {
+            const options = {
+                searchOptions: {
+                    key: "ETBHtzqXwWytWV3mdxYu4MHr2p9d9stX",
+                    language: "it-IT",
+                    limit: 5,
+                },
+                autocompleteOptions: {
+                    key: "ETBHtzqXwWytWV3mdxYu4MHr2p9d9stX",
+                    language: "it-IT",
+                },
+            };
+
+            this.ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
+            const searchBoxHTML = this.ttSearchBox.getSearchBoxHTML();
+
+
+            const searchInput = document.getElementById('searchInput');
+            const searchBoxContainer = document.getElementById('searchBoxContainer');
+
+            searchBoxContainer.appendChild(searchBoxHTML);
+            searchInput.parentNode.removeChild(searchInput);
+
+            console.log(this.store.searchQuery)
+
+            this.ttSearchBox.on("tomtom.searchbox.resultselected", (event) => {
+                this.store.searchQuery = event.data.result.address.freeformAddress;
+            });
+            console.log(this.store.searchQuery)
+        },
+    },
+};
 
 </script>
 
@@ -20,8 +55,8 @@ export default {
         <div class="row mb-3">
                 <div class="col-12">
                     <form @submit.prevent="searchApartments">
-                        <div class="input-group">
-                            <input v-model="store.searchQuery" type="text" class="form-control"
+                        <div class="input-group" id="searchBoxContainer">
+                            <input  id="searchInput" v-model="store.searchQuery" type="text" class="form-control"
                                 placeholder="Search for an address or city" />
                             <!-- <button type="submit" class="btn btn-primary">Search</button> -->
                             <router-link :to="{ name: 'apartments' }" class="btn my_btn fw-bold" 
@@ -37,10 +72,8 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
-// .my_btn {
-//     background-color: #fe8376;
-//     color: white;
-// }
-
+.my_btn {
+    background-color: #fe8376;
+    color: white;
+}
 </style>
