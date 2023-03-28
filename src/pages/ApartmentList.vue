@@ -51,6 +51,8 @@ export default {
 <template>
     <section>
         <div class="container">
+            <SearchComponent @searchApartments="searchApartments"/>
+            
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Launch static backdrop modal
