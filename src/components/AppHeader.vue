@@ -24,7 +24,7 @@ export default {
                         <li class="nav-item">
                             <router-link :to="{ name: 'home' }" class="nav-link"
                                 :class="this.$route.name === 'home' ? 'active' : ''">
-                                Home
+                                <img src="../assets/img/Logo.png" alt="Logo BoolBnB">
                             </router-link>
                         </li>
                         <li class="nav-item">
@@ -54,7 +54,7 @@ nav {
         font-weight: bold;
 
         img {
-            width: 50px;
+            width: 100px;
         }
     }
 }

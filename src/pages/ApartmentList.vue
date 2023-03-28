@@ -54,7 +54,7 @@ export default {
             <SearchComponent @searchApartments="searchApartments" />
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <button type="button" class="btn my_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 Filter
             </button>
 
@@ -106,6 +106,12 @@ export default {
     justify-content: center;
     flex-wrap: wrap;
 }
+
+.my_btn {
+    background-color: #fe8376;
+    color: white;
+}
+
 </style>
 
 
