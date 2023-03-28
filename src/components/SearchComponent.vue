@@ -11,26 +11,6 @@ export default {
             urlAddress: "http://127.0.0.1:8000",
         }
     },
-
-    // methods: {
-    //     searchApartments(searchQuery) {
-    //         console.log(searchQuery);
-    //         axios.get(this.urlAddress + "/api/apartments/", {
-    //                 params: {
-    //                     address: searchQuery
-    //                 },
-    //             })
-
-    //             .then((response) => {
-    //                 this.store.apartments = response.data.results;
-    //             })
-
-    //             .catch((error) => {
-    //                 console.warn(error);
-    //             });
-    //     },
-    // },
-
 }
 
 </script>

@@ -24,10 +24,12 @@ export default {
     methods: {
         searchApartments() {
             axios.get(this.urlAddress + "/api/apartments/", {
-                    params: {
-                        address: store.searchQuery
-                    },
-                })
+                params: {
+                    address: store.searchQuery,
+                    n_beds: store.filters.n_beds,
+                    n_rooms: store.filters.n_rooms
+                },
+            })
 
                 .then((response) => {
                     this.store.apartments = response.data.results;
@@ -49,7 +51,19 @@ export default {
 <template>
     <section>
         <div class="container">
-            <SearchComponent @searchApartments="searchApartments"/>
+            <SearchComponent @searchApartments="searchApartments" />
+
+            <div class="row justify-content-between align-items-center mb-3">
+                <div class="col-md-6 col-lg-4">
+                    <label class="form-label">Numero di letti</label>
+                    <input v-model.number="store.filters.n_beds" type="number" min="1" class="form-control">
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <label class="form-label">Numero di stanze</label>
+                    <input v-model.number="store.filters.n_rooms" type="number" min="1" class="form-control">
+                </div>
+            </div>
+
 
             <h1 class="text-center py-3">Apartments in {{ store.searchQuery.toUpperCase() }}</h1>
             <div class="row justify-content-between align-items-center">
@@ -67,15 +81,6 @@ export default {
     justify-content: center;
     flex-wrap: wrap;
 }
-// .single-card {
-//     width: calc(100% / 3 - 2rem);
-//     margin: 1rem;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: space-between;
-//     border-radius: 30px;
-//     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-// }
 </style>
 
 
