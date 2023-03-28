@@ -74,8 +74,6 @@ export default {
                 <h5>Dove ti troverai:</h5>
 
                 <!--Inserire Mappa-->
-                <hr>
-                <!--Inserire Contatti-->
             </div>    
         </div>
 </template>
