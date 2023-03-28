@@ -67,7 +67,7 @@ export default {
                     </a>
                 </span> -->
 
-                <router-link :to="{name: 'apartment', params: {slug: apartment.slug}}" class="btn btn-dark">
+                <router-link :to="{name: 'apartment', params: {slug: apartment.slug}}" class="btn my_btn">
                     Show
                 </router-link>
             </div>
@@ -93,14 +93,9 @@ div.image_container{
     }
 }
 
-// .card-footer {
-//     background-color: #aba9ee8d;
-//     color: white !important;
-//     font-weight: bold;
-// }
-
-// a {
-//     border: 1px solid black;
-// }
+.my_btn {
+    background-color: #fe8376;
+    color: white;
+}
 
 </style>

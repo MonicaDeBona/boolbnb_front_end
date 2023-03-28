@@ -24,11 +24,9 @@ export default {
                             <input v-model="store.searchQuery" type="text" class="form-control"
                                 placeholder="Search for an address or city" />
                             <!-- <button type="submit" class="btn btn-primary">Search</button> -->
-                            <router-link :to="{ name: 'apartments' }" class="btn btn-primary" 
+                            <router-link :to="{ name: 'apartments' }" class="btn my_btn fw-bold" 
                                 type="submit" @click="$emit('searchApartments', store.searchQuery)">
-                                
                                 Cerca
-                            
                             </router-link>
                         
                         </div>
@@ -38,6 +36,11 @@ export default {
     </div>
 </template>
 
-<style lang="">
-    
+<style lang="scss" scoped>
+
+.my_btn {
+    background-color: #fe8376;
+    color: white;
+}
+
 </style>
