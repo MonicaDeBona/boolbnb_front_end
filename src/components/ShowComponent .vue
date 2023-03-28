@@ -74,13 +74,6 @@ export default {
                 Mappa
 
                 <hr>
-
-                <h5>Contatta l'Host</h5>
-                <!--Inserire Form-->
-                ...
-                
-                    
-
             </div>    
         </div>
 </template>

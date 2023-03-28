@@ -38,9 +38,9 @@ export default {
 
 <style lang="scss" scoped>
 
-.my_btn {
-    background-color: #fe8376;
-    color: white;
-}
+// .my_btn {
+//     background-color: #fe8376;
+//     color: white;
+// }
 
 </style>
