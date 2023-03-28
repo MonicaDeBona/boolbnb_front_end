@@ -110,14 +110,17 @@ export default {
                 </div>
             </div>
 
-
-
-
             <!-- <h1 class="text-center py-3">Apartments in {{ store.searchQuery.toUpperCase() }}</h1> -->
             <div class="row align-items-center">
                 <!--Qui andranno le card-->
                 <ApartmentComponent v-for="apartmentElement in this.store.apartments" :apartment="apartmentElement"
                     :imagePath="urlAddress" />
+                <!--Messaggio da mostrare all'utente se non viene trovato nessun risultato-->
+                <div v-if="this.store.apartments.length === 0" class="d-flex flex-column align-items-center justify-content-center py-5">
+                    <img src="https://i.pinimg.com/564x/41/33/fc/4133fc74007d45c442cb41f0aeb6d919.jpg" alt="placeholeder-image" class="w-25 align-content-center">
+                    <h5 class="text-center py-2">Sorry, no apartments found.</h5>
+                </div>
+
             </div>
         </div>
     </section>
