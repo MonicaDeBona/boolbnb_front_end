@@ -42,28 +42,31 @@ export default {
                 <p>{{ apartment.description }}</p>
 
                 <div class="py-3">
+                    <p>Home details:</p>
                     <span class="py-2">
-                        Rooms: {{ apartment.n_rooms }}
+                        Rooms: {{ apartment.n_rooms }} |
                     </span>
 
                     <span class="py-2">
-                        Beds: {{ apartment.n_beds }}
+                        Beds: {{ apartment.n_beds }} |
                     </span>
 
                     <span class="py-2">
-                        Bathrooms: {{ apartment.n_bathrooms }}
+                        Bathrooms: {{ apartment.n_bathrooms }} |
                     </span>
 
                     <span class="py-2">
-                        Square Meters: {{ apartment.square_meters }}
+                        Square Meters: {{ apartment.square_meters }} mq |
                     </span>
                 </div>
 
                 <div class="py-3">
-                    <h5>Cosa troverai:</h5>
+                    <h5 class="pb-2">Cosa troverai:</h5>
                     <div>
                         <span class="fw-bold me-2 mb-1" v-for="service in apartment.services">
-                        <i class="fa-solid fa-check"></i> {{ service.name }}
+                            <div>
+                                <font-awesome-icon class="pe-2" :icon="['fas', 'check']" /> {{ service.name }}
+                            </div>
                         </span>
                     </div>
                 </div>
@@ -71,9 +74,6 @@ export default {
                 <h5>Dove ti troverai:</h5>
 
                 <!--Inserire Mappa-->
-                Mappa
-
-                <hr>
             </div>    
         </div>
 </template>

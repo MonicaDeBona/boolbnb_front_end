@@ -70,8 +70,8 @@ export default {
             <SearchComponent @searchApartments="searchApartments" />
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn my_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                Filter
+            <button type="button" class="btn my_btn mb-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <font-awesome-icon :icon="['fas', 'list']" /> Filters 
             </button>
 
             <!-- Modal -->
