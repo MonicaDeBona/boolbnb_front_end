@@ -8,11 +8,11 @@ export default {
             required: true,
         },
 
-        'isShow': {
-            type: Boolean,
-            required: false,
-            default: false,
-        },
+        // 'isShow': {
+        //     type: Boolean,
+        //     required: false,
+        //     default: false,
+        // },
 
         'imagePath': {
             type: String,
@@ -67,7 +67,7 @@ export default {
                     </a>
                 </span> -->
 
-                <router-link v-if="!isShow" :to="{name: 'apartment', params: {slug: apartment.slug}}" class="btn btn-dark">
+                <router-link :to="{name: 'apartment', params: {slug: apartment.slug}}" class="btn btn-dark">
                     Show
                 </router-link>
             </div>
