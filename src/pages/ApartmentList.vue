@@ -18,7 +18,21 @@ export default {
             loading: false,
             urlAddress: "http://127.0.0.1:8000",
             store,
+            selectedServices: [],
         };
+    },
+    computed: {
+        uniqueServices() { // funzione che scorre tutti gli appartamenti e per ogni appartamento, scorre i suoi servizi e verifica se quel servizio è già presente nella lista dei servizi unici, se non è presente, lo pusha.
+            let services = [];
+            this.store.apartments.forEach((apartment) => {
+                apartment.services.forEach((service) => {
+                    if (!services.some((serviceItem) => serviceItem.id === service.id)) {
+                        services.push(service);
+                    }
+                });
+            });
+            return services;
+        },
     },
 
     methods: {
@@ -27,7 +41,8 @@ export default {
                 params: {
                     address: store.searchQuery,
                     n_beds: store.filters.n_beds,
-                    n_rooms: store.filters.n_rooms
+                    n_rooms: store.filters.n_rooms,
+                    services: this.selectedServices,
                 },
             })
 
@@ -43,7 +58,8 @@ export default {
     created() {
         this.searchApartments();
     },
-};;
+
+};
 
 </script>
 
@@ -79,9 +95,16 @@ export default {
                                         class="form-control">
                                 </div>
                             </div>
+                            <div class="form-check" v-for="service in uniqueServices" :key="service.id">
+                                <input class="form-check-input" type="checkbox" :value="service.slug"
+                                    v-model="selectedServices" />
+                                <label class="form-check-label">{{ service.name }}</label>
+                            </div>
                         </div>
+
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" @click="searchApartments" data-bs-dismiss="modal">Search</button>
+                            <button type="button" class="btn btn-primary" @click="searchApartments"
+                                data-bs-dismiss="modal">Search</button>
                         </div>
                     </div>
                 </div>
@@ -113,7 +136,5 @@ export default {
 }
 
 </style>
-
-
 
 
