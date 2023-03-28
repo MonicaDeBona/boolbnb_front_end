@@ -29,62 +29,74 @@ export default {
 </script>
 
 <template>
-    <div class="card text-center mb-3 single-card p-3">
-        <h2 class="card-title fw-bold pt-2">
-            {{ apartment.title }}
-        </h2>
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="flat_card rounded-3 mb-3 p-3">
+            <div>
+                <div class="image_container">
+                    <img v-if="!apartment.image.startsWith('uploads')" :src="imagePath + '/img/' + apartment.image" class="img-fluid rounded-3" :alt="apartment.title">
+                    <img v-else :src="imagePath + '/storage/' + apartment.image" class="img-fluid rounded-3" :alt="apartment.title">
+                </div>
 
-        <div class="card-body m-3">
+                <h2 class="fw-bold pt-2">
+                    {{ apartment.title }}
+                </h2>
 
-            <img v-if="!apartment.image.startsWith('uploads')" :src="imagePath + '/img/' + apartment.image"
-                class="img-thumbnail" :alt="apartment.title">
-            <img v-else :src="imagePath + '/storage/' + apartment.image" class="img-thumbnail" :alt="apartment.title">
+                <p class="pt-2">
+                    {{ apartment.address }}
+                </p>
 
-            <p class="card-text pt-4 mb-4">
-                {{ apartment.address }}
-            </p>
+                <!-- <p class="pt-2">
+                    rooms: {{ apartment.n_rooms }}
+                </p>
 
-            <p class="card-text pt-4 mb-4">
-                rooms: {{ apartment.n_rooms }}
-            </p>
+                <p class="pt-2">
+                    beds: {{ apartment.n_beds }}
+                </p>
 
-            <p class="card-text pt-4 mb-4">
-                beds: {{ apartment.n_beds }}
-            </p>
+                <p class="pt-2">
+                    {{ apartment.n_bathrooms }}
+                </p>
 
-            <p class="card-text pt-4 mb-4">
-                {{ apartment.n_bathrooms }}
-            </p>
+                <p class="pt-2">
+                    {{ apartment.square_meters }}
+                </p>
 
-            <p class="card-text pt-4 mb-4">
-                {{ apartment.square_meters }}
-            </p>
-
-            <span class="fw-bold me-2">
-                <a class="btn btn-disabled rounded-pill fw-bold me-2 mb-1" v-for="service in apartment.services">
-                    {{ service.name }}
-                </a>
-            </span>
+                <span class="fw-bold me-2">
+                    <a class="btn btn-disabled rounded-pill fw-bold me-2 mb-1" v-for="service in apartment.services">
+                        {{ service.name }}
+                    </a>
+                </span> -->
+            </div>
         </div>
     </div>
+    
 </template>
 
 <style lang="scss" scoped>
-.card {
-    border-radius: 30px;
+.flat_card {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
 
-    img {
-        border-radius: 30px;
+div.image_container{
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }
 
-.card-footer {
-    background-color: #aba9ee8d;
-    color: white !important;
-    font-weight: bold;
-}
+// .card-footer {
+//     background-color: #aba9ee8d;
+//     color: white !important;
+//     font-weight: bold;
+// }
 
-a {
-    border: 1px solid black;
-}</style>
+// a {
+//     border: 1px solid black;
+// }
+
+</style>
