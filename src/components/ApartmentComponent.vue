@@ -66,6 +66,10 @@ export default {
                         {{ service.name }}
                     </a>
                 </span> -->
+
+                <router-link v-if="!isShow" :to="{name: 'apartment', params: {slug: apartment.slug}}" class="btn btn-dark">
+                    Show
+                </router-link>
             </div>
         </div>
     </div>
