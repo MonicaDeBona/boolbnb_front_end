@@ -64,7 +64,7 @@ export default {
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Filters</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -90,7 +90,7 @@ export default {
 
 
 
-            <h1 class="text-center py-3">Apartments in {{ store.searchQuery.toUpperCase() }}</h1>
+            <!-- <h1 class="text-center py-3">Apartments in {{ store.searchQuery.toUpperCase() }}</h1> -->
             <div class="row align-items-center">
                 <!--Qui andranno le card-->
                 <ApartmentComponent v-for="apartmentElement in this.store.apartments" :apartment="apartmentElement"
