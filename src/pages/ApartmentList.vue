@@ -40,7 +40,6 @@ export default {
                 });
         },
     },
-
     created() {
         this.searchApartments();
     },
@@ -56,7 +55,7 @@ export default {
 
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                Launch static backdrop modal
+                Filter
             </button>
 
             <!-- Modal -->
@@ -65,7 +64,7 @@ export default {
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Filters</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -82,8 +81,7 @@ export default {
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Understood</button>
+                            <button type="button" class="btn btn-primary" @click="searchApartments" data-bs-dismiss="modal">Search</button>
                         </div>
                     </div>
                 </div>
@@ -92,8 +90,8 @@ export default {
 
 
 
-            <h1 class="text-center py-3">Apartments in {{ store.searchQuery.toUpperCase() }}</h1>
-            <div class="row justify-content-between align-items-center">
+            <!-- <h1 class="text-center py-3">Apartments in {{ store.searchQuery.toUpperCase() }}</h1> -->
+            <div class="row align-items-center">
                 <!--Qui andranno le card-->
                 <ApartmentComponent v-for="apartmentElement in this.store.apartments" :apartment="apartmentElement"
                     :imagePath="urlAddress" />
