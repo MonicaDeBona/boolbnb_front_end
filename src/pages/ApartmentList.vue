@@ -103,7 +103,7 @@ export default {
                         </div>
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" @click="searchApartments"
+                            <button type="button" class="btn my_btn" @click="searchApartments"
                                 data-bs-dismiss="modal">Search</button>
                         </div>
                     </div>
@@ -131,11 +131,6 @@ export default {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-}
-
-.my_btn {
-    background-color: #fe8376;
-    color: white;
 }
 
 </style>

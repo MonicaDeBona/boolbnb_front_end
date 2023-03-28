@@ -1,6 +1,8 @@
 <script>
 //importo la card appartamento
 import ShowComponent from '../components/ShowComponent .vue'
+import ContactForm from '../components/ContactForm.vue';
+
 //importo axios
 import axios from 'axios';
 //importo lo store
@@ -13,6 +15,7 @@ export default {
 
     components:{
         ShowComponent,
+        ContactForm,
     },
 
     data() {
@@ -54,6 +57,8 @@ export default {
     <section class="container">
 
         <ShowComponent :apartment="this.store.apartment" :isShow="true" :imagePath="urlAddress"/>
+
+        <ContactForm />
 
     </section>
 </template>
