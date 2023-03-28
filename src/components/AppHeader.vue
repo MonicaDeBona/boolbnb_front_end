@@ -27,13 +27,12 @@ export default {
                                 <img src="../assets/img/Logo.png" alt="Logo BoolBnB">
                             </router-link>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item ps-5">
                             <router-link :to="{ name: 'apartments' }" class="nav-link"
                                 :class="this.$route.name === 'apartments' ? 'active' : ''">
-                                Apartments
+                                All Apartments
                             </router-link>
                         </li>
-
                     </ul>
                 </div>
 
@@ -54,7 +53,7 @@ nav {
         font-weight: bold;
 
         img {
-            width: 100px;
+            width: 130px;
         }
     }
 }

@@ -51,7 +51,7 @@ export default {
 </script>
 
 <template lang="">
-    <div class="container">
+    <div class="container py-5">
         <div class="row mb-3">
                 <div class="col-12">
                     <form @submit.prevent="searchApartments">
@@ -72,8 +72,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.my_btn {
-    background-color: #fe8376;
-    color: white;
-}
+
+
 </style>

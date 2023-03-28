@@ -1,6 +1,9 @@
 <script>
-
+//importo axios
 import axios from 'axios';
+//importo lo store
+import { store } from '../store';
+
 
 export default {
 
@@ -15,6 +18,7 @@ export default {
             loading : false,
             errors : {},
             apiAddress: 'http://127.0.0.1:8000/api/',
+            store,
         }
     },
 
@@ -64,7 +68,7 @@ export default {
 
         <div class="form-input p-3">
 
-            <h3>Contatta l'Host</h3>
+            <h3>Contatta l'Host: {{ this.store.apartment.user_id}}</h3>
 
             <div class="alert alert-success mb-3" v-if="success">
                 <h5>
@@ -95,7 +99,7 @@ export default {
                     Message:
                 </label>
 
-                <textarea class="form-control" id="contact_message" rows="10" name="message" v-model="message"></textarea>
+                <textarea class="form-control" id="contact_message" rows="10" name="message" v-model="message" placeholder="Insert your message here..."></textarea>
             </div>
 
 
