@@ -32,9 +32,10 @@ export default {
     <div class="col-12 col-md-6 col-lg-4">
         <div class="flat_card rounded-3 mb-3 p-3">
             <div>
-                <img v-if="!apartment.image.startsWith('uploads')" :src="imagePath + '/img/' + apartment.image"
-                    class="img-fluid rounded-3" :alt="apartment.title">
-                <img v-else :src="imagePath + '/storage/' + apartment.image" class="img-fluid rounded-3" :alt="apartment.title">
+                <div class="image_container">
+                    <img v-if="!apartment.image.startsWith('uploads')" :src="imagePath + '/img/' + apartment.image" class="img-fluid rounded-3" :alt="apartment.title">
+                    <img v-else :src="imagePath + '/storage/' + apartment.image" class="img-fluid rounded-3" :alt="apartment.title">
+                </div>
 
                 <h2 class="fw-bold pt-2">
                     {{ apartment.title }}
@@ -74,20 +75,28 @@ export default {
 <style lang="scss" scoped>
 .flat_card {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
 
-    img {
-        border-radius: 30px;
+div.image_container{
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }
 
-.card-footer {
-    background-color: #aba9ee8d;
-    color: white !important;
-    font-weight: bold;
-}
+// .card-footer {
+//     background-color: #aba9ee8d;
+//     color: white !important;
+//     font-weight: bold;
+// }
 
-a {
-    border: 1px solid black;
-}
+// a {
+//     border: 1px solid black;
+// }
 
 </style>
