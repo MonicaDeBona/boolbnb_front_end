@@ -40,7 +40,6 @@ export default {
                 });
         },
     },
-
     created() {
         this.searchApartments();
     },
@@ -56,7 +55,7 @@ export default {
 
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                Launch static backdrop modal
+                Filter
             </button>
 
             <!-- Modal -->
@@ -82,8 +81,7 @@ export default {
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Understood</button>
+                            <button type="button" class="btn btn-primary" @click="searchApartments" data-bs-dismiss="modal">Search</button>
                         </div>
                     </div>
                 </div>
@@ -93,7 +91,7 @@ export default {
 
 
             <h1 class="text-center py-3">Apartments in {{ store.searchQuery.toUpperCase() }}</h1>
-            <div class="row justify-content-between align-items-center">
+            <div class="row align-items-center">
                 <!--Qui andranno le card-->
                 <ApartmentComponent v-for="apartmentElement in this.store.apartments" :apartment="apartmentElement"
                     :imagePath="urlAddress" />
