@@ -82,28 +82,52 @@ export default {
 
             <div class="mb-4 pt-3">
                 <label for="contact_name" class="form-label">
-                    Name:
+                    Name:*
                 </label>
 
-                <input type="text" class="form-control" id="contact_name" placeholder="Insert your name" v-model="name">
+                <input type="text" class="form-control mb-2" id="contact_name" placeholder="Insert your name" v-model="name">
+
+                <p v-for="error in errors.name" class="is-invalid d-block text-danger ">
+                    <font-awesome-icon :icon="['fas', 'circle-exclamation']" /> {{ error }}
+                </p>
             </div>
 
 
             <div class="mb-4">
                 <label for="contact_email" class="form-label">
-                    Email:
+                    Email:*
                 </label>
 
-                <input type="text" class="form-control" id="contact_email" placeholder="Insert your email" v-model="email">
+                <input type="text" class="form-control mb-2" id="contact_email" placeholder="Insert your email" v-model="email">
+
+                <p v-for="error in errors.email" class="is-invalid d-block text-danger ">
+                    <font-awesome-icon :icon="['fas', 'circle-exclamation']" /> {{ error }}
+                </p>
+            </div>
+
+            <div class="mb-4">
+                <label for="contact_number" class="form-label">
+                    Phone Number:
+                </label>
+
+                <input type="text" class="form-control" id="contact_number mb-2" placeholder="Insert your phone number" v-model="phone_number">
+
+                <p v-for="error in errors.phone_number" class="is-invalid d-block text-danger ">
+                    <font-awesome-icon :icon="['fas', 'circle-exclamation']" /> {{ error }}
+                </p>
             </div>
 
             <div class="mb-4">
                 <label for="contact_message" class="form-label">
-                    Message:
+                    Message:*
                 </label>
 
-                <textarea class="form-control" id="contact_message" rows="10" name="message" v-model="message"
+                <textarea class="form-control mb-2" id="contact_message" rows="10" name="message" v-model="message"
                     placeholder="Insert your message here..."></textarea>
+
+                <p v-for="error in errors.message" class="is-invalid d-block text-danger py-">
+                    <font-awesome-icon :icon="['fas', 'circle-exclamation']" /> {{ error }}
+                </p>
             </div>
 
 
@@ -117,4 +141,10 @@ export default {
     </section>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+p {
+    font-size: .8rem;
+}
+
+</style>
