@@ -19,17 +19,16 @@ export default {
             urlAddress: "http://127.0.0.1:8000",
             store,
             selectedServices: [],
+            serviceList: [],
         };
     },
     computed: {
         uniqueServices() { // funzione che scorre tutti gli appartamenti e per ogni appartamento, scorre i suoi servizi e verifica se quel servizio è già presente nella lista dei servizi unici, se non è presente, lo pusha.
             let services = [];
-            this.store.apartments.forEach((apartment) => {
-                apartment.services.forEach((service) => {
-                    if (!services.some((serviceItem) => serviceItem.id === service.id)) {
-                        services.push(service);
-                    }
-                });
+            services.forEach((service) => {
+                if (!services.some((serviceItem) => serviceItem.id === service.id)) {
+                    services.push(service);
+                }
             });
             return services;
         },
@@ -47,7 +46,8 @@ export default {
             })
 
                 .then((response) => {
-                    this.store.apartments = response.data.results;
+                    this.store.apartments = response.data.results.apartments;
+                    this.store.serviceList = response.data.results.services;
                 })
 
                 .catch((error) => {
@@ -71,7 +71,7 @@ export default {
 
             <!-- Button trigger modal -->
             <button type="button" class="btn my_btn mb-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                <font-awesome-icon :icon="['fas', 'list']" /> Filters 
+                <font-awesome-icon :icon="['fas', 'list']" /> Filters
             </button>
 
             <!-- Modal -->
@@ -95,9 +95,10 @@ export default {
                                         class="form-control">
                                 </div>
                             </div>
-                            <div class="form-check" v-for="service in uniqueServices" :key="service.id">
+                            <div class="form-check" v-for="service in this.store.serviceList" :key="service.id">
                                 <input class="form-check-input" type="checkbox" :value="service.slug"
                                     v-model="selectedServices" />
+
                                 <label class="form-check-label">{{ service.name }}</label>
                             </div>
                         </div>
@@ -116,8 +117,10 @@ export default {
                 <ApartmentComponent v-for="apartmentElement in this.store.apartments" :apartment="apartmentElement"
                     :imagePath="urlAddress" />
                 <!--Messaggio da mostrare all'utente se non viene trovato nessun risultato-->
-                <div v-if="this.store.apartments.length === 0" class="d-flex flex-column align-items-center justify-content-center py-5">
-                    <img src="https://i.pinimg.com/564x/41/33/fc/4133fc74007d45c442cb41f0aeb6d919.jpg" alt="placeholeder-image" class="w-25 align-content-center">
+                <div v-if="this.store.apartments.length === 0"
+                    class="d-flex flex-column align-items-center justify-content-center py-5">
+                    <img src="https://i.pinimg.com/564x/41/33/fc/4133fc74007d45c442cb41f0aeb6d919.jpg"
+                        alt="placeholeder-image" class="w-25 align-content-center">
                     <h5 class="text-center py-2">Sorry, no apartments found.</h5>
                 </div>
 
@@ -132,7 +135,6 @@ export default {
     justify-content: center;
     flex-wrap: wrap;
 }
-
 </style>
 
 
