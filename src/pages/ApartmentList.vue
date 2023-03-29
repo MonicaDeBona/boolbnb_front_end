@@ -84,10 +84,14 @@ export default {
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <div class="row justify-content-between align-items-center mb-3">
+                            <div class="row justify-content-center align-items-center mb-3">
                                 <div class="col-md-6 col-lg-4">
                                     <label class="form-label">Numero di letti</label>
                                     <input v-model.number="store.filters.n_beds" type="number" min="1" class="form-control">
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <label class="form-label">Distanza</label>
+                                    <input v-model.number="store.filters.distance" type="number" min="1" class="form-control">
                                 </div>
                                 <div class="col-md-6 col-lg-4">
                                     <label class="form-label">Numero di stanze</label>

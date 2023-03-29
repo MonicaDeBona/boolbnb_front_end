@@ -10,6 +10,7 @@ export const store = reactive({
 
     filters: {
         n_beds: null,
+        distance: null,
         n_rooms: null,
         services: []
     },
