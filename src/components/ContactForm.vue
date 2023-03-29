@@ -14,44 +14,48 @@ export default {
             name: '',
             email: '',
             message: '',
+            phone_number: '',
             success: false,
-            loading : false,
-            errors : {},
+            loading: false,
+            errors: {},
             apiAddress: 'http://127.0.0.1:8000/api/',
             store,
         }
     },
 
-    props: { 
+    props: {
 
     },
 
     methods: {
-        sendContactForm(){
+        sendContactForm() {
             this.success = false;
             // invio il form
             this.loading = true;
-            console.warn(this.name, this.email, this.message);
+            console.warn(this.name, this.email, this.message, this.phone_number, this.store.apartment.id,);
             const formData = {
-                name : this.name,
+                name: this.name,
                 email: this.email,
                 message: this.message,
+                phone_number: this.phone_number,
+                apartment_id: this.store.apartment.id,
             };
 
-            axios.post(`${this.apiAddress}contact-us`, formData ).then((response) => {
+            axios.post(`${this.apiAddress}messages`, formData).then((response) => {
                 this.success = response.data.success;
                 // console.warn(this.success);
 
-               //  se è andata bene invia il messaggio
-                if (this.success){
+                //  se è andata bene invia il messaggio
+                if (this.success) {
                     this.name = "";
                     this.email = "";
                     this.message = "";
+                    this.phone_number = "";
 
-                // altrimenti mostra gli errori
+                    // altrimenti mostra gli errori
                 } else {
                     this.errors = response.data.errors;
-                    console.warn(this.errors  );
+                    console.warn(this.errors);
                 }
 
                 this.loading = false;
@@ -63,12 +67,11 @@ export default {
 
 
 <template >
-
     <section class="contact-form w-100">
 
         <div class="form-input p-3">
 
-            <h3>Contatta l'Host: {{ this.store.apartment.user_id}}</h3>
+            <h3>Contatta l'Host: {{ this.store.apartment.user_id }}</h3>
 
             <div class="alert alert-success mb-3" v-if="success">
                 <h5>
@@ -99,7 +102,8 @@ export default {
                     Message:
                 </label>
 
-                <textarea class="form-control" id="contact_message" rows="10" name="message" v-model="message" placeholder="Insert your message here..."></textarea>
+                <textarea class="form-control" id="contact_message" rows="10" name="message" v-model="message"
+                    placeholder="Insert your message here..."></textarea>
             </div>
 
 
@@ -111,9 +115,6 @@ export default {
         </div>
 
     </section>
-
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
