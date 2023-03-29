@@ -5,6 +5,7 @@ export const store = reactive({
     searchQuery: "",
 
     apartments: [],
+    servicesList: [],
 
     apartment: null,
 
