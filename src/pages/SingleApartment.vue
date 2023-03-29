@@ -14,7 +14,7 @@ export default {
 
     name: 'SingleApartment',
 
-    components:{
+    components: {
         ShowComponent,
         ContactForm,
         ShowMapComponent,
@@ -22,7 +22,7 @@ export default {
 
     data() {
         return {
-            
+
             loading: false,
             urlAddress: 'http://127.0.0.1:8000',
             store
@@ -30,22 +30,22 @@ export default {
     },
     methods: {
 
-        getApartment(){
+        getApartment() {
             axios.get(this.urlAddress + "/api/apartments/" + this.$route.params.slug, {
 
                 params: {
-                    
+
                 }
             })
 
-            .then((response) => {
-                //console.log(response.data.results.data);
-                this.store.apartment = response.data.results;
-            })
+                .then((response) => {
+                    //console.log(response.data.results.data);
+                    this.store.apartment = response.data.results;
+                })
 
-            .catch(function (error) {
-                console.warn(error);
-            });
+                .catch(function (error) {
+                    console.warn(error);
+                });
         }
     },
     created() {
@@ -55,11 +55,10 @@ export default {
 </script>
 
 <template>
-
     <section class="container">
 
-        <ShowComponent :apartment="this.store.apartment" :isShow="true" :imagePath="urlAddress"/>
-        <ShowMapComponent/>
+        <ShowComponent :apartment="this.store.apartment" :isShow="true" :imagePath="urlAddress" />
+        <ShowMapComponent :key="this.store.apartment.id" />
         <ContactForm />
 
     </section>
@@ -67,9 +66,8 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
-
 </style>
