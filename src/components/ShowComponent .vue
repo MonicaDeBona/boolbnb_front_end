@@ -1,83 +1,109 @@
 <script>
-export default {
-    name: 'ShowComponent',
+import ContactForm from './ContactForm.vue';
+import ShowMapComponent from './ShowMapComponent.vue';
 
+
+export default {
+    name: "ShowComponent",
     props: {
-        'apartment': {
+        "apartment": {
             type: Object,
             required: true,
         },
-
-        'imagePath': {
+        "imagePath": {
             type: String,
             required: true
         },
-
         data() {
             return {
                 //
-            }
+            };
         }
+    },
+    components: {
+        ContactForm,
+        ShowMapComponent,
     }
 }
 </script>
 
 <template>
-        <div class="container"> 
-            <div class="mb-3 p-3">
-
-                <h1 class="fw-bold py-3">
+    <div class="container-fluid">
+        <div class="row my-3 py-3">
+            <div class="col-12">
+                <h1 class=" pt-3">
                     {{ apartment.title }}
-                </h1>                
-
-                <div class="image_container">
-                    <img v-if="!apartment.image.startsWith('uploads')" :src="imagePath + '/img/' + apartment.image" class="img-fluid rounded-3" :alt="apartment.title">
-                    <img v-else :src="imagePath + '/storage/' + apartment.image" class="img-fluid rounded-3" :alt="apartment.title">
-                </div>
-
-                <h5 class="py-3">
+                </h1>
+                <h5>
                     {{ apartment.address }}
                 </h5>
-
-                <p>{{ apartment.description }}</p>
-
-                <div class="py-3">
-                    <p>Home details:</p>
-                    <span class="py-2">
-                        Rooms: {{ apartment.n_rooms }} |
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div>
+                    <img v-if="!apartment.image.startsWith('uploads')" :src="imagePath + '/img/' + apartment.image"
+                        class=" rounded-3 image-container img-fluid" :alt="apartment.title">
+                    <img v-else :src="imagePath + '/storage/' + apartment.image" class="img-fluid rounded-3 image-container"
+                        :alt="apartment.title">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-7 mt-5">
+                <div class="py-3 fw-bold">
+                    <h2>Aparment's infos</h2>
+                    <span class="py-2 my_info">
+                        Rooms: {{ apartment.n_rooms }} &bull;
                     </span>
 
-                    <span class="py-2">
-                        Beds: {{ apartment.n_beds }} |
+                    <span class="py-2 my_info">
+                        Beds: {{ apartment.n_beds }} &bull;
                     </span>
 
-                    <span class="py-2">
-                        Bathrooms: {{ apartment.n_bathrooms }} |
+                    <span class="py-2 my_info">
+                        Bathrooms: {{ apartment.n_bathrooms }} &bull;
                     </span>
 
-                    <span class="py-2">
-                        Square Meters: {{ apartment.square_meters }} mq |
+                    <span class="py-2 my_info">
+                        Square Meters: {{ apartment.square_meters }} mq
                     </span>
                 </div>
 
+                <div>
+                    <p>{{ apartment.description }}</p>
+                </div>
                 <div class="py-3">
-                    <h5 class="pb-2">Cosa troverai:</h5>
+                    <h2 class="pb-2">What this place offers</h2>
                     <div>
-                        <span class="fw-bold me-2 mb-1" v-for="service in apartment.services">
-                            <div>
-                                <font-awesome-icon class="pe-2" :icon="['fas', 'check']" /> {{ service.name }}
-                            </div>
+                        <span class="fw-bold mb-1" v-for="service in apartment.services">
+                            <ul class="list-unstyled p-0 m-0">
+                                <li class="text-capitalize mb-2 my_info">
+                                    <font-awesome-icon class="pe-2" :icon="['fas', 'check']" /> {{
+                                        service.name }}
+                                </li>
+
+                            </ul>
                         </span>
                     </div>
                 </div>
-                <hr>
-                <h5>Dove ti troverai:</h5>
+            </div>
 
-                <!--Inserire Mappa-->
-            </div>    
+            <div class="col-12 col-sm-5 ">
+
+                <div class=" ms-5 position-static d-block py-5" tabindex="-1" role="dialog" id="modalTour">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content rounded-4 shadow">
+                            <div class="modal-body p-3">
+                                <ContactForm />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
+    </div>
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

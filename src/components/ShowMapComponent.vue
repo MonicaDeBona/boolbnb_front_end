@@ -61,14 +61,21 @@ export default {
 </script>
 
 <template>
-  <section class="py-3">
-    <div id='map' ref="mapRef"></div>
-  </section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <section class="py-3">
+          <div id='map' ref="mapRef" class="w-100"></div>
+        </section>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 #map {
-  height: 50vh;
-  width: 50vw;
+  border-radius: 1rem;
+  height: 650px;
+  margin-bottom: 3rem;
 }
 </style>
