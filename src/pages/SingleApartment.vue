@@ -59,7 +59,7 @@ export default {
 
         <ShowComponent :apartment="this.store.apartment" :isShow="true" :imagePath="urlAddress" />
         <ShowMapComponent :key="this.store.apartment.id" />
-        <ContactForm />
+        <!-- <ContactForm /> -->
 
     </section>
 </template>

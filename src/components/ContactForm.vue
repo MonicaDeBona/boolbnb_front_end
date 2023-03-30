@@ -63,7 +63,7 @@ export default {
                 this.loading = false;
             })
         },
-        
+
         clearErrors() {
             this.errors = {};
         }
@@ -76,8 +76,13 @@ export default {
     <section class="contact-form w-100">
 
         <div class="form-input p-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2 class="text-center">Contact host</h2>
+                <font-awesome-icon style="color: #fe8376; font-size: 1.5rem;" :icon="['fas', 'paper-plane']" />
+            </div>
 
-            <h3>Contatta l'Host: {{ this.store.apartment.user_id }}</h3>
+            <!-- Inseire il nome dell host con icona -->
+            <!-- <h3>Contatta l'Host: {{ this.store.apartment.user_id }}</h3> -->
 
             <div class="alert alert-success mb-3" v-if="success">
                 <h5>
@@ -91,7 +96,8 @@ export default {
                     Name:*
                 </label>
 
-                <input type="text" class="form-control mb-2" id="contact_name" placeholder="Insert your name" v-model="name" @input="clearErrors()">
+                <input type="text" class="form-control mb-2" id="contact_name" placeholder="Insert your name" v-model="name"
+                    @input="clearErrors()">
 
                 <p v-for="error in errors.name" class="is-invalid d-block text-danger ">
                     <font-awesome-icon :icon="['fas', 'circle-exclamation']" /> {{ error }}
@@ -104,7 +110,8 @@ export default {
                     Email:*
                 </label>
 
-                <input type="text" class="form-control mb-2" id="contact_email" placeholder="Insert your email" v-model="email" @input="clearErrors()">
+                <input type="text" class="form-control mb-2" id="contact_email" placeholder="Insert your email"
+                    v-model="email" @input="clearErrors()">
 
                 <p v-for="error in errors.email" class="is-invalid d-block text-danger ">
                     <font-awesome-icon :icon="['fas', 'circle-exclamation']" /> {{ error }}
@@ -116,7 +123,8 @@ export default {
                     Phone Number:
                 </label>
 
-                <input type="text" class="form-control" id="contact_number mb-2" placeholder="Insert your phone number" v-model="phone_number" @input="clearErrors()">
+                <input type="text" class="form-control" id="contact_number mb-2" placeholder="Insert your phone number"
+                    v-model="phone_number" @input="clearErrors()">
 
                 <p v-for="error in errors.phone_number" class="is-invalid d-block text-danger ">
                     <font-awesome-icon :icon="['fas', 'circle-exclamation']" /> {{ error }}
@@ -128,8 +136,8 @@ export default {
                     Message:*
                 </label>
 
-                <textarea class="form-control mb-2" id="contact_message" rows="10" name="message" v-model="message" @input="clearErrors()"
-                    placeholder="Insert your message here..."></textarea>
+                <textarea class="form-control mb-2" id="contact_message" rows="3" name="message" v-model="message"
+                    @input="clearErrors()" placeholder="Insert your message here..."></textarea>
 
                 <p v-for="error in errors.message" class="is-invalid d-block text-danger py-">
                     <font-awesome-icon :icon="['fas', 'circle-exclamation']" /> {{ error }}
@@ -138,9 +146,11 @@ export default {
 
 
             <div class="mb-4">
-                <button class="btn my_btn" @click.prevent="sendContactForm">
-                    Send Message
-                </button>
+                <!-- <button class="btn my_btn" @click.prevent="sendContactForm">
+                                                                                            Send Message
+                                                                                        </button> -->
+                <button class="btn btn-lg my_btn w-100" @click.prevent="sendContactForm">Great,
+                    thanks!</button>
             </div>
         </div>
 
@@ -148,9 +158,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
 p {
     font-size: .8rem;
 }
-
 </style>
