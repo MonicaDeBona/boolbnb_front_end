@@ -1,21 +1,25 @@
 @import 'bootstrap/scss/bootstrap';
 
+body {
+    font-family: 'Urbanist', sans-serif;
+}
+
 .my_btn {
     background-color: #fe8376;
     color: white;
 
     &:hover {
-        border: 1px solid  #fe8376;
-        color:  #fe8376;
+        border: 1px solid #fe8376;
+        color: #fe8376;
     }
 }
 
 .tt-search-box {
-    margin-top: 0!important;
+    margin-top: 0 !important;
 
 }
 
 .tt-search-box-input-container {
     border-color: #fe8376;
-    width: 100%!important;
+    width: 100% !important;
 }
