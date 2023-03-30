@@ -42,14 +42,37 @@ export default {
 
             this.ttSearchBox.on("tomtom.searchbox.resultselected", (event) => {
                 this.store.searchQuery = event.data.result.address.freeformAddress;
+                
+                //prendiamo le coordinate della città cercata
                 this.store.inputCoordinates = event.data.result.position;
                 console.log(this.store.inputCoordinates);
             });
             console.log(this.store.searchQuery)
         },
-        getDistance(){
 
-        }
+        getDistance(){
+            // raggio di ricerca es.20km
+            const searchRadius = 20000;
+
+            // ciclo per scorrere gli appartamenti
+            for (let i = 0; i < this.store.apartmentsCoordinates.length; i++) {
+            // coordinate dell'appartamento corrente
+            const apartmentLat = this.store.apartmentsCoordinates[i].latitude;
+            const apartmentLng = this.store.apartmentsCoordinates[i].longitude;
+
+            // calcolo della distanza tra la città cercata e l'appartamento
+            const distance = haversine(this.store.inputCoordinates.latitude, this.store.inputCoordinates.latitude, apartmentLat, apartmentLng);
+            console.log(distance)
+        
+            // se la distanza è inferiore al raggi, pushiamo l'id nell'array filtrata
+            if (distance <= searchRadius) {
+                this.store.filteredApartments.push(this.store.apartmentsCoordinates[i].id);
+            }
+            }
+
+            // funzione per calcolare la distanza tra due coordinate???
+ 
+            }
     },
 };
 
@@ -65,7 +88,7 @@ export default {
                                 placeholder="Search for an address or city" />
                             <!-- <button type="submit" class="btn btn-primary">Search</button> -->
                             <router-link :to="{ name: 'apartments' }" class="btn my_btn fw-bold" 
-                                type="submit" @click="$emit('searchApartments', store.searchQuery)">
+                                type="submit" @click="$emit('searchApartments', store.searchQuery); getDistance">
                                 Cerca
                             </router-link>
                         

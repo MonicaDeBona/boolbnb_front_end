@@ -7,12 +7,10 @@ export const store = reactive({
     apartments: [],
     servicesList: [],
 
+    //coordinate lat e long
     inputCoordinates: [],
-    apartmentsCoordinates: [
-        {
-            
-        }
-    ],
+    apartmentsCoordinates: [],
+    filteredApartments: [],
 
     apartment: null,
 

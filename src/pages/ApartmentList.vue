@@ -49,8 +49,18 @@ export default {
                     this.store.apartments = response.data.results.apartments;
                     console.log(this.store.apartments)
                     this.store.servicesList = response.data.results.services;
-                    this.store.apartmentsCoordinates.push(response.data.results.apartments[0].latitude, response.data.results.apartments[0].longitude) 
+
+                    //ottengo le coordinate degli appartamenti ciclando sugli appartamenti
+                    this.store.apartments.forEach(apartment => {
+                    const coordinates = { 
+                        latitude: apartment.latitude, 
+                        longitude: apartment.longitude,
+                        id: apartment.id, //agggiungo l'id per capire di quale appartamento prendere le coordinate
+                    };
+                    this.store.apartmentsCoordinates.push(coordinates);
+                    });
                     console.log(this.store.apartmentsCoordinates);
+
                 })
 
                 .catch((error) => {
