@@ -28,6 +28,9 @@ export default {
                             </router-link>
                         </li>
                         <li class="nav-item ps-5">
+                            <a class="nav-link" href="http://127.0.0.1:8000/">Homepage</a>
+                        </li>
+                        <li class="nav-item ps-5">
                             <router-link :to="{ name: 'apartments' }" class="nav-link"
                                 :class="this.$route.name === 'apartments' ? 'active' : ''">
                                 All Apartments
