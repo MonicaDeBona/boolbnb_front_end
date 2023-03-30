@@ -33,7 +33,7 @@ export default {
 
 
             const searchInput = document.getElementById('searchInput');
-            searchBoxHTML.querySelector('input.tt-search-box-input').value = this.store.searchQuery;
+            // searchBoxHTML.querySelector('input.tt-search-box-input').value = this.store.searchQuery;
             const searchBoxContainer = document.getElementById('searchBoxContainer');
 
             searchBoxContainer.appendChild(searchBoxHTML);
@@ -43,14 +43,9 @@ export default {
 
             this.ttSearchBox.on("tomtom.searchbox.resultselected", (event) => {
                 this.store.searchQuery = event.data.result.address.freeformAddress;
-                this.store.inputCoordinates = event.data.result.position;
-                console.log(this.store.inputCoordinates);
             });
             console.log(this.store.searchQuery)
         },
-        getDistance() {
-
-        }
     },
 };
 
