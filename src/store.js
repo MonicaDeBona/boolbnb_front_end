@@ -7,6 +7,13 @@ export const store = reactive({
     apartments: [],
     servicesList: [],
 
+    inputCoordinates: [],
+    apartmentsCoordinates: [
+        {
+            
+        }
+    ],
+
     apartment: null,
 
     filters: {

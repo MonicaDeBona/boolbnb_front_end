@@ -47,7 +47,10 @@ export default {
 
                 .then((response) => {
                     this.store.apartments = response.data.results.apartments;
-                    this.store.serviceList = response.data.results.services;
+                    console.log(this.store.apartments)
+                    this.store.servicesList = response.data.results.services;
+                    this.store.apartmentsCoordinates.push(response.data.results.apartments[0].latitude, response.data.results.apartments[0].longitude) 
+                    console.log(this.store.apartmentsCoordinates);
                 })
 
                 .catch((error) => {
