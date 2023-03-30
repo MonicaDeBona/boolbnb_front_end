@@ -10,13 +10,13 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faCheck, faList, faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faList, faCircleExclamation, faUser } from '@fortawesome/free-solid-svg-icons'
 
 
 /* add icons to the library */
-library.add(faCheck, faList, faCircleExclamation)
+library.add(faCheck, faList, faCircleExclamation, faUser)
 
 createApp(App)
-.use(router)
-.component('font-awesome-icon', FontAwesomeIcon)
-.mount('#app')
+    .use(router)
+    .component('font-awesome-icon', FontAwesomeIcon)
+    .mount('#app')

@@ -20,15 +20,16 @@ export default {
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav text-light">
+                    <ul class="navbar-nav text-light align-items-center">
                         <li class="nav-item">
                             <router-link :to="{ name: 'home' }" class="nav-link"
                                 :class="this.$route.name === 'home' ? 'active' : ''">
                                 <img src="../assets/img/Logo.png" alt="Logo BoolBnB">
                             </router-link>
                         </li>
-                        <li class="nav-item ps-5">
-                            <a class="nav-link" href="http://127.0.0.1:8000/">Homepage</a>
+                        <li class="nav-item ps-5 d-flex align-items-center">
+                            <font-awesome-icon style="color:black" :icon="['fas', 'user']" />
+                            <a class="nav-link" href="http://127.0.0.1:8000/">Account</a>
                         </li>
                         <li class="nav-item ps-5">
                             <router-link :to="{ name: 'apartments' }" class="nav-link"
