@@ -411,3 +411,12 @@ div.tt-search-box-input-container {
     margin-right: 80px;
     padding-top: 8px;
 }
+
+.btn-check:checked+.btn[data-v-1d3b37a9],
+:not(.btn-check)+.btn[data-v-1d3b37a9]:active,
+.btn[data-v-1d3b37a9]:first-child:active,
+.btn.active[data-v-1d3b37a9],
+.btn.show[data-v-1d3b37a9] {
+    color: white;
+    background-color: $main-color;
+}
