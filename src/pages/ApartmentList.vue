@@ -46,8 +46,9 @@ export default {
             })
 
                 .then((response) => {
+                    console.log(response.data.results)
                     this.store.apartments = response.data.results.apartments;
-                    this.store.serviceList = response.data.results.services;
+                    this.store.servicesList = response.data.results.services;
                 })
 
                 .catch((error) => {

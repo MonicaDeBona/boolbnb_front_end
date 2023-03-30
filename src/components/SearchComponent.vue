@@ -42,9 +42,14 @@ export default {
 
             this.ttSearchBox.on("tomtom.searchbox.resultselected", (event) => {
                 this.store.searchQuery = event.data.result.address.freeformAddress;
+                this.store.inputCoordinates = event.data.result.position;
+                console.log(this.store.inputCoordinates);
             });
             console.log(this.store.searchQuery)
         },
+        getDistance(){
+
+        }
     },
 };
 
