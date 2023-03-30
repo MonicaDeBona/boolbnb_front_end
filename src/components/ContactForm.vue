@@ -32,6 +32,8 @@ export default {
             this.success = false;
             // invio il form
             this.loading = true;
+            this.clearErrors();
+
             console.warn(this.name, this.email, this.message, this.phone_number, this.store.apartment.id,);
             const formData = {
                 name: this.name,
@@ -60,6 +62,10 @@ export default {
 
                 this.loading = false;
             })
+        },
+        
+        clearErrors() {
+            this.errors = {};
         }
     },
 }
