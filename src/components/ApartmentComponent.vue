@@ -30,50 +30,51 @@ export default {
 
 <template>
     <div class="col-12 col-md-6 col-lg-4">
-        <div class="flat_card rounded-3 mb-3 p-3">
-            <div>
-                <div class="image_container">
-                    <img v-if="!apartment.image.startsWith('uploads')" :src="imagePath + '/img/' + apartment.image" class="img-fluid rounded-3" :alt="apartment.title">
-                    <img v-else :src="imagePath + '/storage/' + apartment.image" class="img-fluid rounded-3" :alt="apartment.title">
-                </div>
+    <div class="flat_card rounded-3 mb-3 p-3">
+        <div>
+            <div class="image_container">
+                <img v-if="!apartment.image.startsWith('uploads')" :src="imagePath + '/img/' + apartment.image"
+                    class="img-fluid rounded-3" :alt="apartment.title">
+                <img v-else :src="imagePath + '/storage/' + apartment.image" class="img-fluid rounded-3"
+                    :alt="apartment.title">
+            </div>
 
-                <h2 class="fw-bold pt-2">
+                <h4 class="fw-bold pt-2">
                     {{ apartment.title }}
-                </h2>
+                </h4>
 
-                <p class="pt-2">
+                <p class="pt-2 one-line">
                     {{ apartment.address }}
                 </p>
 
                 <!-- <p class="pt-2">
-                    rooms: {{ apartment.n_rooms }}
-                </p>
+                                            rooms: {{ apartment.n_rooms }}
+                                        </p>
 
-                <p class="pt-2">
-                    beds: {{ apartment.n_beds }}
-                </p>
+                                        <p class="pt-2">
+                                            beds: {{ apartment.n_beds }}
+                                        </p>
 
-                <p class="pt-2">
-                    {{ apartment.n_bathrooms }}
-                </p>
+                                        <p class="pt-2">
+                                            {{ apartment.n_bathrooms }}
+                                        </p>
 
-                <p class="pt-2">
-                    {{ apartment.square_meters }}
-                </p>
+                                        <p class="pt-2">
+                                            {{ apartment.square_meters }}
+                                        </p>
 
-                <span class="fw-bold me-2">
-                    <a class="btn btn-disabled rounded-pill fw-bold me-2 mb-1" v-for="service in apartment.services">
-                        {{ service.name }}
-                    </a>
-                </span> -->
+                                        <span class="fw-bold me-2">
+                                            <a class="btn btn-disabled rounded-pill fw-bold me-2 mb-1" v-for="service in apartment.services">
+                                                {{ service.name }}
+                                            </a>
+                                        </span> -->
 
-                <router-link :to="{name: 'apartment', params: {slug: apartment.slug}}" class="btn my_btn">
+                <router-link :to="{ name: 'apartment', params: { slug: apartment.slug } }" class="btn my_btn">
                     Show
                 </router-link>
             </div>
         </div>
     </div>
-    
 </template>
 
 <style lang="scss" scoped>
@@ -81,21 +82,27 @@ export default {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
-div.image_container{
+div.image_container {
     width: 100%;
-    height: 250px;
+    max-height: 250px;
     overflow: hidden;
 
-    img{
+    img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
 }
 
+h4,
+.one-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .my_btn {
     background-color: #fe8376;
     color: white;
 }
-
 </style>
