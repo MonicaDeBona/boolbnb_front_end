@@ -33,6 +33,7 @@ export default {
 
 
             const searchInput = document.getElementById('searchInput');
+            searchBoxHTML.querySelector('input.tt-search-box-input').value = this.store.searchQuery;
             const searchBoxContainer = document.getElementById('searchBoxContainer');
 
             searchBoxContainer.appendChild(searchBoxHTML);
@@ -47,7 +48,7 @@ export default {
             });
             console.log(this.store.searchQuery)
         },
-        getDistance(){
+        getDistance() {
 
         }
     },
@@ -61,7 +62,7 @@ export default {
                 <div class="col-12">
                     <form @submit.prevent="searchApartments">
                         <div class="input-group" id="searchBoxContainer">
-                            <input  id="searchInput" v-model="store.searchQuery" type="text" class="form-control"
+                            <input ref="searchInput" id="searchInput" v-model="store.searchQuery" type="text" class="form-control"
                                 placeholder="Search for an address or city" />
                             <!-- <button type="submit" class="btn btn-primary">Search</button> -->
                             <router-link :to="{ name: 'apartments' }" class="btn my_btn fw-bold" 
@@ -76,7 +77,4 @@ export default {
     </div>
 </template>
 
-<style lang="scss" scoped>
-
-
-</style>
+<style lang="scss" scoped></style>
