@@ -32,7 +32,7 @@ export default {
             this.success = false;
             // invio il form
             this.loading = true;
-            this.clearErrors();
+            //this.clearErrors();
 
             console.warn(this.name, this.email, this.message, this.phone_number, this.store.apartment.id,);
             const formData = {
@@ -91,7 +91,7 @@ export default {
                     Name:*
                 </label>
 
-                <input type="text" class="form-control mb-2" id="contact_name" placeholder="Insert your name" v-model="name">
+                <input type="text" class="form-control mb-2" id="contact_name" placeholder="Insert your name" v-model="name" @input="clearErrors()">
 
                 <p v-for="error in errors.name" class="is-invalid d-block text-danger ">
                     <font-awesome-icon :icon="['fas', 'circle-exclamation']" /> {{ error }}
@@ -104,7 +104,7 @@ export default {
                     Email:*
                 </label>
 
-                <input type="text" class="form-control mb-2" id="contact_email" placeholder="Insert your email" v-model="email">
+                <input type="text" class="form-control mb-2" id="contact_email" placeholder="Insert your email" v-model="email" @input="clearErrors()">
 
                 <p v-for="error in errors.email" class="is-invalid d-block text-danger ">
                     <font-awesome-icon :icon="['fas', 'circle-exclamation']" /> {{ error }}
@@ -116,7 +116,7 @@ export default {
                     Phone Number:
                 </label>
 
-                <input type="text" class="form-control" id="contact_number mb-2" placeholder="Insert your phone number" v-model="phone_number">
+                <input type="text" class="form-control" id="contact_number mb-2" placeholder="Insert your phone number" v-model="phone_number" @input="clearErrors()">
 
                 <p v-for="error in errors.phone_number" class="is-invalid d-block text-danger ">
                     <font-awesome-icon :icon="['fas', 'circle-exclamation']" /> {{ error }}
@@ -128,7 +128,7 @@ export default {
                     Message:*
                 </label>
 
-                <textarea class="form-control mb-2" id="contact_message" rows="10" name="message" v-model="message"
+                <textarea class="form-control mb-2" id="contact_message" rows="10" name="message" v-model="message" @input="clearErrors()"
                     placeholder="Insert your message here..."></textarea>
 
                 <p v-for="error in errors.message" class="is-invalid d-block text-danger py-">
