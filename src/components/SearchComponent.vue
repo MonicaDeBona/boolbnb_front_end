@@ -38,12 +38,23 @@ export default {
             searchBoxContainer.appendChild(searchBoxHTML);
             searchInput.parentNode.removeChild(searchInput);
 
-            console.log(this.store.searchQuery)
+            // console.log(this.store.searchQuery)
 
             this.ttSearchBox.on("tomtom.searchbox.resultselected", (event) => {
-                this.store.searchQuery = event.data.result.address.freeformAddress;
+                const result = event.data.result;
+                // console.log("lng ricerca:", result.position.lng);
+                // latitudine ricerca
+                const searchLat = result.position.lat
+                this.store.searchLat = searchLat;
+                // longitudine ricerca
+                const searchLong = result.position.lng;
+                this.store.searchLong = searchLong;
+
+                this.store.searchQuery = result.address.freeformAddress;
+                console.log("ricerca : ", this.store.searchQuery)
+                // const position = result.position;
+                // console.log("Latitudine:", position.lat, "Longitudine:", position.lng);
             });
-            console.log(this.store.searchQuery)
         },
     },
 };

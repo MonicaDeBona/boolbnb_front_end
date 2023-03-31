@@ -21,7 +21,7 @@ export default {
 
         data() {
             return {
-                //
+
             }
         }
     }
@@ -41,8 +41,11 @@ export default {
 
             <h5 class=" pt-2 fw-bold pt-3 text-capitalize"> {{ apartment.title }} </h5>
 
-            <p class="one-line custom_margin text-capitalize">
+            <p class="one-line custom_margin text-capitalize me-2">
                 {{ apartment.address }}
+                <span class="one-line custom_margin text-capitalize ms-3" v-if="apartment.distance != null">
+                    Distance: {{ apartment.distance }} Km
+                </span>
             </p>
             <ul class=" list-unstyled">
                 <li class="text-capitalize" v-for="service in apartment.services">

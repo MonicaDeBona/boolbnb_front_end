@@ -48,7 +48,7 @@ export default {
         key: '6SAi5dGbnJdWK8nFfjntfDymv8x9xMwj',
         position: marker.getLngLat()
       }).then(function (result) {
-        console.log(result.addresses[0].address.freeformAddress);
+        // console.log(result.addresses[0].address.freeformAddress);
         popup.setHTML(result.addresses[0].address.freeformAddress);
       })
     }
