@@ -71,7 +71,7 @@ export default {
             <SearchComponent @searchApartments="searchApartments" />
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn my_btn mb-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <button type="button" class="btn my_btn mb-4 ms-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 <font-awesome-icon :icon="['fas', 'list']" /> Filters
             </button>
 
@@ -113,10 +113,10 @@ export default {
             </div>
 
             <!-- <h1 class="text-center py-3">Apartments in {{ store.searchQuery.toUpperCase() }}</h1> -->
-            <div class="row align-items-center">
-                <!--Qui andranno le card-->
+            <div class="row align-items-center justify-content-center d-flex align-items-stretch flex-wrap">
                 <ApartmentComponent v-for="apartmentElement in this.store.apartments" :apartment="apartmentElement"
                     :imagePath="urlAddress" />
+                <!--Qui andranno le card-->
                 <!--Messaggio da mostrare all'utente se non viene trovato nessun risultato-->
                 <div v-if="this.store.apartments.length === 0"
                     class="d-flex flex-column align-items-center justify-content-center py-5">
