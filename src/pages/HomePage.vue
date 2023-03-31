@@ -52,7 +52,7 @@ export default {
 </svg>
 <main>
     <div class="container">
-        <div class="p-5 mb-4 bg-light rounded-3 my_bg">
+        <div class="p-5 mb-4 rounded-3 my_bg">
             <div class="container-fluid py-5">
                 <h1 class="display-5 fw-bold">Custom jumbotron</h1>
                 <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one
@@ -88,20 +88,20 @@ export default {
     </main>
 
     <!-- <div class="container">
-                    <SearchComponent />
-                    <div class="row">
-                        <div class="col-12">
-                            <ApartmentComponent v-for="sponsoredApartment in this.store.sponsoredApartments"
-                                :apartment="sponsoredApartment" :imagePath="urlAddress" />
-                            <div v-if="this.store.sponsoredApartments.length === 0"
-                                class="d-flex flex-column align-items-center justify-content-center py-5">
-                                <img src="https://i.pinimg.com/564x/41/33/fc/4133fc74007d45c442cb41f0aeb6d919.jpg"
-                                    alt="placeholeder-image" class="w-25 align-content-center">
-                                <h5 class="text-center py-2">Sorry, no apartments found.</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+                                            <SearchComponent />
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <ApartmentComponent v-for="sponsoredApartment in this.store.sponsoredApartments"
+                                                        :apartment="sponsoredApartment" :imagePath="urlAddress" />
+                                                    <div v-if="this.store.sponsoredApartments.length === 0"
+                                                        class="d-flex flex-column align-items-center justify-content-center py-5">
+                                                        <img src="https://i.pinimg.com/564x/41/33/fc/4133fc74007d45c442cb41f0aeb6d919.jpg"
+                                                            alt="placeholeder-image" class="w-25 align-content-center">
+                                                        <h5 class="text-center py-2">Sorry, no apartments found.</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> -->
 </template>
 
 <style lang="scss" scoped></style>
