@@ -8,6 +8,7 @@ export const store = reactive({
     servicesList: [],
     searchLat: null,
     searchLong: null,
+    radius: '',
 
 
 

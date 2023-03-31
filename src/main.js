@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faCheck, faList, faCircleExclamation, faUser, faHotel, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 
 
+
 /* add icons to the library */
 library.add(faCheck, faList, faCircleExclamation, faUser, faHotel, faPaperPlane)
 

@@ -44,6 +44,7 @@ export default {
                 // longitudine ricerca
                 const searchLong = result.position.lng;
                 this.store.searchLong = searchLong;
+                this.store.radius = result.position.radius;
 
                 this.store.searchQuery = result.address.freeformAddress;
                 console.log("ricerca : ", this.store.searchQuery)
@@ -62,6 +63,7 @@ export default {
                         <div class="position-relative flex-grow-1" id="searchBoxContainer">
                             <input ref="searchInput" id="searchInput" v-model="store.searchQuery" type="text" class="form-control"
                                 placeholder="Search for an address or city" />
+                                
                             <!-- <button type="submit" class="btn btn-primary">Search</button> -->
                             <router-link :to="{ name: 'apartments' }" class="btn search-bar-btn" 
                                 type="submit" @click="$emit('searchApartments', store.searchQuery)">
