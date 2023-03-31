@@ -30,8 +30,7 @@ export default {
                             </router-link>
                         </li>
                         <li class="nav-item ms-0 ms-lg-3 d-flex align-items-center">
-                            <!-- <font-awesome-icon style="color:black" :icon="['fas', 'user']" /> -->
-                            <a class="nav-link btn account-btn" href="http://127.0.0.1:8000/">
+                            <a class="nav-link btn account-btn p-1 pd-lg-0" href="http://127.0.0.1:8000/">
                                 Account
                             </a>
                         </li>
