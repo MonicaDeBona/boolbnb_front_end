@@ -26,7 +26,6 @@ export default {
     }
 }
 </script>
-
 <template>
     <div class="container-fluid">
         <div class="row my-3 py-3">
