@@ -24,7 +24,7 @@ export default {
                             </router-link>
                         </li>
                         <li class="nav-item ms-0 ms-lg-auto">
-                            <router-link :to="{ name: 'apartments' }" class="nav-link"
+                            <router-link :to="{ name: 'apartments' }" class="nav-link pt-0 mb-1"
                                 :class="this.$route.name === 'apartments' ? 'active' : ''">
                                 Apartments
                             </router-link>
