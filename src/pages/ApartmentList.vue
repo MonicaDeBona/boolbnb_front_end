@@ -113,7 +113,8 @@ export default {
             </div>
 
             <!-- <h1 class="text-center py-3">Apartments in {{ store.searchQuery.toUpperCase() }}</h1> -->
-            <div class="row align-items-center justify-content-center d-flex align-items-stretch flex-wrap">
+            <div
+                class="row align-items-center justify-content-center justify-content-sm-start d-flex align-items-stretch flex-wrap">
                 <ApartmentComponent v-for="apartmentElement in this.store.apartments" :apartment="apartmentElement"
                     :imagePath="urlAddress" />
                 <!--Qui andranno le card-->

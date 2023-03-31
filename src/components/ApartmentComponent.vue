@@ -29,11 +29,11 @@ export default {
 </script>
 
 <template>
-    <div class="col-auto p-3 flex-wrap my_card_dim">
+    <div class="col-12 col-sm-12 col-md-6 col-xl-3 p-3">
         <div class="card border-0 align-item-stretch align-content-stretch">
             <img v-if="!apartment.image.startsWith('uploads')" :src="imagePath + '/img/' + apartment.image"
-                class="my_img_card rounded-3" :alt="apartment.title">
-            <img v-else :src="imagePath + '/storage/' + apartment.image" class="rounded-3 my_img_card"
+                class="img-fluid rounded-3 my_img_card" :alt="apartment.title">
+            <img v-else :src="imagePath + '/storage/' + apartment.image" class="rounded-3 my_img_card img-fluid"
                 :alt="apartment.title">
             <h5 class="pt-2 fw-bold pt-3 text-capitalize">
                 {{ apartment.title }}
@@ -84,11 +84,9 @@ h5,
 }
 
 .my_img_card {
-    height: 200px;
-    width: 297px;
+    height: 250px;
     object-fit: cover;
-    // min-width: 285px;
-    // min-height: 200px;
+    min-height: 250px;
 
 }
 
