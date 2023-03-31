@@ -50,7 +50,9 @@ export default {
                 console.log("ricerca : ", this.store.searchQuery)
                 // const position = result.position;
                 // console.log("Latitudine:", position.lat, "Longitudine:", position.lng);
+
             });
+            console.log(this.store.radius)
         },
     },
 };

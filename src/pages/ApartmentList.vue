@@ -49,7 +49,6 @@ export default {
                     radius: store.radius,
                     latitude: store.searchLat,
                     longitude: store.searchLong,
-                    radius: store.radius,
                 },
             })
                 .then((response) => {
@@ -130,9 +129,8 @@ export default {
                                 <div class="radius-container">
                                     <label for="radius" class="mx-2 mb-0">Radius (km):</label>
                                     <div class="slidecontainer">
-                                        <input id="radius" v-model.number="store.radius" type="range" min="1" max="300"
+                                        <input id="radius" v-model.number="store.radius" type="number" min="1" max="300"
                                             class="form-control slider" />
-
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-4">
