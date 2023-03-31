@@ -46,6 +46,10 @@ export default {
                     n_beds: store.filters.n_beds,
                     n_rooms: store.filters.n_rooms,
                     services: this.selectedServices,
+                    radius: store.radius,
+                    latitude: store.searchLat,
+                    longitude: store.searchLong,
+                    radius: store.radius,
                 },
             })
                 .then((response) => {
@@ -122,7 +126,15 @@ export default {
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <div class="row justify-content-between align-items-center mb-3">
+                            <div class="row justify-content-center align-items-center mb-3">
+                                <div class="radius-container">
+                                    <label for="radius" class="mx-2 mb-0">Radius (km):</label>
+                                    <div class="slidecontainer">
+                                        <input id="radius" v-model.number="store.radius" type="range" min="1" max="300"
+                                            class="form-control slider" />
+
+                                    </div>
+                                </div>
                                 <div class="col-md-6 col-lg-4">
                                     <label class="form-label">Numero di letti</label>
                                     <input v-model.number="store.filters.n_beds" type="number" min="1" class="form-control">
@@ -170,6 +182,8 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use '../styles/general.scss' as *;
+
 .card-wrapper {
     display: flex;
     justify-content: center;
@@ -180,6 +194,44 @@ export default {
     height: 48px;
     width: 100px;
     margin-top: 8px;
+}
+
+.slidecontainer {
+    width: 100%;
+}
+
+.slider {
+
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: $main-color;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: $main-color;
+    cursor: pointer;
 }
 </style>
 
