@@ -36,9 +36,9 @@ export default {
       var location = [store.apartment.longitude, store.apartment.latitude];
       //console.log(store.apartment.latitude)
       //console.log(store.apartment.longitude)
-      var popupOffset = 35;
+      var popupOffset = 50;
       // var marker = new tt.Marker({ color: '#fe8376', with: 50 }).setLngLat(location).addTo(map);
-      var marker = new tt.Marker({ width: 50, color: '#fe8376' }).setLngLat(location).addTo(map);
+      var marker = new tt.Marker({ width: 40, color: '#fe8376' }).setLngLat(location).addTo(map);
       var popup = new tt.Popup({ offset: popupOffset });
       reverseGeocoding(marker, popup);
       map.scrollZoom.disable();
