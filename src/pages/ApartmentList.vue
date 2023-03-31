@@ -20,6 +20,8 @@ export default {
             store,
             selectedServices: [],
             serviceList: [],
+            searchLat: null,
+            searchLong: null,
         };
     },
     computed: {
@@ -36,6 +38,8 @@ export default {
 
     methods: {
         searchApartments() {
+            const searchLat = this.store.searchLat;
+            const searchLong = this.store.searchLong;
             axios.get(this.urlAddress + "/api/apartments/", {
                 params: {
                     address: store.searchQuery,
@@ -44,18 +48,46 @@ export default {
                     services: this.selectedServices,
                 },
             })
-
                 .then((response) => {
-                    this.store.apartments = response.data.results.apartments;
-                    console.log(this.store.apartments)
+                    const apartments = response.data.results.apartments;
+                    // console.log(apartments)
+
+                    // Calcola la distanza tra l'indirizzo inserito dall'utente e la posizione di ogni appartamento
+                    // If per mostrare i km solo quando viene effettuata una ricerca
+                    if (searchLat !== null || searchLong !== null) {
+                        apartments.forEach((apartment) => {
+                            const R = 6371; // raggio della Terra in km
+                            const lat1 = searchLat; //latitudine ricerca
+                            const lon1 = searchLong; //longitudine ricerca
+                            const lat2 = apartment.latitude; //latitudine appartamento
+                            const lon2 = apartment.longitude; // longitudine appartamento
+                            const dLat = ((lat2 - lat1) * Math.PI) / 180;
+                            const dLon = ((lon2 - lon1) * Math.PI) / 180;
+                            const a =
+                                Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                                Math.cos((lat1 * Math.PI) / 180) *
+                                Math.cos((lat2 * Math.PI) / 180) *
+                                Math.sin(dLon / 2) *
+                                Math.sin(dLon / 2);
+                            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                            const distance = R * c; // distanza in km
+                            apartment.distance = distance.toFixed(1);
+                            // console.log("haversine lat: ", lat1)
+                            // console.log("haversine long: ", lon1)
+                            // console.log("haversine lon: ", lon1) // aggiungi la distanza all'oggetto appartamento
+                        });
+                    }
+
+                    this.store.apartments = apartments;
+                    // console.log(this.store.apartments);
                     this.store.serviceList = response.data.results.services;
                 })
-
                 .catch((error) => {
                     console.warn(error);
                 });
         },
     },
+
     created() {
         this.searchApartments();
     },
@@ -67,13 +99,16 @@ export default {
 <template>
     <section>
         <div class="container">
+            <div class="d-flex align-items-center">
+                <SearchComponent @searchApartments="searchApartments" />
 
-            <SearchComponent @searchApartments="searchApartments" />
+                <!-- Button trigger modal -->
+                <button type="button" class="btn my_btn mb-4 filter" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop">
+                    <font-awesome-icon :icon="['fas', 'list']" /> Filters
+                </button>
 
-            <!-- Button trigger modal -->
-            <button type="button" class="btn my_btn mb-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                <font-awesome-icon :icon="['fas', 'list']" /> Filters
-            </button>
+            </div>
 
             <!-- Modal -->
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -135,6 +170,12 @@ export default {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.filter {
+    height: 48px;
+    width: 100px;
+    margin-top: 8px;
 }
 </style>
 

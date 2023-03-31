@@ -21,7 +21,7 @@ export default {
 
         data() {
             return {
-                //
+
             }
         }
     }
@@ -39,35 +39,41 @@ export default {
                     :alt="apartment.title">
             </div>
 
-                <h4 class="fw-bold pt-2">
-                    {{ apartment.title }}
-                </h4>
+            <h4 class="fw-bold pt-2">
+                {{ apartment.title }}
+            </h4>
 
-                <p class="pt-2 one-line">
+            <p class="pt-2 one-line">
                     {{ apartment.address }}
+                </p>
+                <br>
+
+                <p class="pt-2 one-line" v-if="apartment.distance != null">
+                    <!-- {{ apartment.address }} chilometri -->
+                    Km distance {{ apartment.distance }}
                 </p>
 
                 <!-- <p class="pt-2">
-                                            rooms: {{ apartment.n_rooms }}
-                                        </p>
+                                                                                                        rooms: {{ apartment.n_rooms }}
+                                                                                                    </p>
 
-                                        <p class="pt-2">
-                                            beds: {{ apartment.n_beds }}
-                                        </p>
+                                                                                                    <p class="pt-2">
+                                                                                                        beds: {{ apartment.n_beds }}
+                                                                                                    </p>
 
-                                        <p class="pt-2">
-                                            {{ apartment.n_bathrooms }}
-                                        </p>
+                                                                                                    <p class="pt-2">
+                                                                                                        {{ apartment.n_bathrooms }}
+                                                                                                    </p>
 
-                                        <p class="pt-2">
-                                            {{ apartment.square_meters }}
-                                        </p>
+                                                                                                    <p class="pt-2">
+                                                                                                        {{ apartment.square_meters }}
+                                                                                                    </p>
 
-                                        <span class="fw-bold me-2">
-                                            <a class="btn btn-disabled rounded-pill fw-bold me-2 mb-1" v-for="service in apartment.services">
-                                                {{ service.name }}
-                                            </a>
-                                        </span> -->
+                                                                                                    <span class="fw-bold me-2">
+                                                                                                        <a class="btn btn-disabled rounded-pill fw-bold me-2 mb-1" v-for="service in apartment.services">
+                                                                                                            {{ service.name }}
+                                                                                                        </a>
+                                                                                                    </span> -->
 
                 <router-link :to="{ name: 'apartment', params: { slug: apartment.slug } }" class="btn my_btn">
                     Show
