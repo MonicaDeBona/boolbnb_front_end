@@ -26,12 +26,11 @@ export default {
 
 
 <style scoped lang="scss">
+@use "../styles/general.scss" as *;
+
     footer{
-        border-top: 1px solid black;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
+        border-top: 1px $main-color solid;
+
         p{
             margin-bottom: 0;
             padding: .75rem 0;

@@ -18,19 +18,19 @@ export default {
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav text-light w-100 align-items-center">
                         <li class="nav-item">
-                            <router-link :to="{ name: 'home' }" class="nav-link"
+                            <router-link :to="{ name: 'home' }" class="nav-link py-0 py-lg-0"
                                 :class="this.$route.name === 'home' ? 'active' : ''">
                                 <img src="../assets/img/Logo.png" alt="Logo BoolBnB">
                             </router-link>
                         </li>
                         <li class="nav-item ms-0 ms-lg-auto">
-                            <router-link :to="{ name: 'apartments' }" class="nav-link pt-0 mb-1"
+                            <router-link :to="{ name: 'apartments' }" class="nav-link"
                                 :class="this.$route.name === 'apartments' ? 'active' : ''">
                                 Apartments
                             </router-link>
                         </li>
                         <li class="nav-item ms-0 ms-lg-3 d-flex align-items-center">
-                            <a class="nav-link btn account-btn p-1 pd-lg-0" href="http://127.0.0.1:8000/">
+                            <a class="nav-link btn account-btn p-1 px-2 pd-lg-0 m-2 m-lg-0" href="http://127.0.0.1:8000/">
                                 Account
                             </a>
                         </li>
