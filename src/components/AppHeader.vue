@@ -31,7 +31,7 @@ export default {
                         </li>
                         <li class="nav-item d-flex align-items-center">
                             <font-awesome-icon style="color:black" :icon="['fas', 'user']" />
-                            <a class="nav-link" href="http://127.0.0.1:8000/">
+                            <a class="nav-link p-2" href="http://127.0.0.1:8000/">
                                 Account
                             </a>
                         </li>
