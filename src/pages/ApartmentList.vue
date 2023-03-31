@@ -34,6 +34,9 @@ export default {
             });
             return services;
         },
+        radiusInKm() {
+            return (this.store.radius);
+        }
     },
 
     methods: {
@@ -92,6 +95,7 @@ export default {
     },
 
     created() {
+        this.store.radius = 20;
         this.searchApartments();
     },
 
@@ -127,9 +131,9 @@ export default {
                         <div class="modal-body">
                             <div class="row justify-content-center align-items-center mb-3">
                                 <div class="radius-container">
-                                    <label for="radius" class="mx-2 mb-0">Radius (km):</label>
+                                    <p>Radius: {{ radiusInKm }} km</p>
                                     <div class="slidecontainer">
-                                        <input id="radius" v-model.number="store.radius" type="number" min="1" max="300"
+                                        <input id="radius" v-model.number="store.radius" type="range" min="1" max="300"
                                             class="form-control slider" />
                                     </div>
                                 </div>
