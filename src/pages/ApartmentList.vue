@@ -133,21 +133,25 @@ export default {
                                             class="form-control slider" />
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-lg-4">
-                                    <label class="form-label">Numero di letti</label>
-                                    <input v-model.number="store.filters.n_beds" type="number" min="1" class="form-control">
-                                </div>
-                                <div class="col-md-6 col-lg-4">
-                                    <label class="form-label">Numero di stanze</label>
-                                    <input v-model.number="store.filters.n_rooms" type="number" min="1"
-                                        class="form-control">
+                                <div class="row justify-content-center align-items-center mb-3">
+                                    <div class="col-md-6 col-lg-4">
+                                        <label class="form-label">Numero di letti</label>
+                                        <input v-model.number="store.filters.n_beds" type="number" min="1"
+                                            class="form-control">
+                                    </div>
+                                    <div class="col-md-6 col-lg-4">
+                                        <label class="form-label">Numero di stanze</label>
+                                        <input v-model.number="store.filters.n_rooms" type="number" min="1"
+                                            class="form-control">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-check" v-for="service in this.store.serviceList" :key="service.id">
-                                <input class="form-check-input" type="checkbox" :value="service.slug"
-                                    v-model="selectedServices" />
-
-                                <label class="form-check-label">{{ service.name }}</label>
+                            <div class="row ms-auto">
+                                <div class="form-check col-6" v-for="service in this.store.serviceList" :key="service.id">
+                                    <input class="form-check-input" type="checkbox" :value="service.slug"
+                                        v-model="selectedServices" />
+                                    <label class="form-check-label text-capitalize">{{ service.name }}</label>
+                                </div>
                             </div>
                         </div>
 
