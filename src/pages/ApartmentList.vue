@@ -163,7 +163,6 @@ export default {
             </div>
 
         </div>
-        </div>
     </section>
 </template>
 
