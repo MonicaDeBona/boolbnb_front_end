@@ -61,6 +61,12 @@ nav {
     }
 }
 
+button.navbar-toggler{
+    // border-color: $main-color;
+    color: $main-color;
+
+}
+
 .account-btn{
     background-color: $main-color;
     color: white;
