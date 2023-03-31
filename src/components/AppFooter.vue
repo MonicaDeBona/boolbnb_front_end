@@ -16,7 +16,7 @@ export default {
                 </div>
                 <div class="col-6 text-end">
                     <p>
-                        Made by: team 3
+                        Made by: Team 3
                     </p>
                 </div>
             </div>
@@ -28,9 +28,13 @@ export default {
 <style scoped lang="scss">
     footer{
         border-top: 1px solid black;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
         p{
             margin-bottom: 0;
-            padding: .5rem 0;
+            padding: .75rem 0;
         }
     }
 </style>
