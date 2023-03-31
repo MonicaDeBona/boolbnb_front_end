@@ -31,31 +31,25 @@ export default {
 <template>
     <div class="col-12 col-sm-12 col-md-6 col-xl-3 p-3">
 
-        <router-link :to="{ name: 'apartment', params: { slug: apartment.slug } }">
+        <router-link class=" text-decoration-none text-black" :to="{ name: 'apartment', params: { slug: apartment.slug } }">
             <div class="card border-0 align-item-stretch align-content-stretch">
                 <img v-if="!apartment.image.startsWith('uploads')" :src="imagePath + '/img/' + apartment.image"
                     class="img-fluid rounded-3 my_img_card" :alt="apartment.title">
                 <img v-else :src="imagePath + '/storage/' + apartment.image" class="rounded-3 my_img_card img-fluid"
                     :alt="apartment.title">
             </div>
-        </router-link>
 
-
-
-
-        <router-link class="text-black text-decoration-none" :to="{ name: 'apartment', params: { slug: apartment.slug } }">
             <h5 class=" pt-2 fw-bold pt-3 text-capitalize"> {{ apartment.title }} </h5>
+
+            <p class="one-line custom_margin text-capitalize">
+                {{ apartment.address }}
+            </p>
+            <ul class=" list-unstyled">
+                <li class="text-capitalize" v-for="service in apartment.services">
+                    <span class="fw-bold"> &bull; </span> {{ service.name }}
+                </li>
+            </ul>
         </router-link>
-
-
-        <p class="one-line custom_margin text-capitalize">
-            {{ apartment.address }}
-        </p>
-        <ul class=" list-unstyled">
-            <li class="text-capitalize" v-for="service in apartment.services">
-                <span class="fw-bold"> &bull; </span> {{ service.name }}
-            </li>
-        </ul>
     </div>
 </template>
 
