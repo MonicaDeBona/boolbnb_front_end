@@ -11,31 +11,29 @@ export default {
 
             <div class="container-fluid">
 
-                <a class="navbar-brand" href="#">
-                </a>
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler ms-auto me-2 me-sm-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav text-light align-items-center">
+                    <ul class="navbar-nav text-light w-100 justify-content-between align-items-center">
                         <li class="nav-item">
                             <router-link :to="{ name: 'home' }" class="nav-link"
                                 :class="this.$route.name === 'home' ? 'active' : ''">
                                 <img src="../assets/img/Logo.png" alt="Logo BoolBnB">
                             </router-link>
                         </li>
-                        <li class="nav-item ps-5 d-flex align-items-center">
-                            <font-awesome-icon style="color:black" :icon="['fas', 'user']" />
-                            <a class="nav-link" href="http://127.0.0.1:8000/">Account</a>
-                        </li>
-                        <li class="nav-item ps-5">
+                        <li class="nav-item">
                             <router-link :to="{ name: 'apartments' }" class="nav-link"
                                 :class="this.$route.name === 'apartments' ? 'active' : ''">
                                 All Apartments
                             </router-link>
+                        </li>
+                        <li class="nav-item d-flex align-items-center">
+                            <font-awesome-icon style="color:black" :icon="['fas', 'user']" />
+                            <a class="nav-link p-2" href="http://127.0.0.1:8000/">
+                                Account
+                            </a>
                         </li>
                     </ul>
                 </div>
