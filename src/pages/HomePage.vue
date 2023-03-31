@@ -1,11 +1,44 @@
 <script>
 import SearchComponent from '../components/SearchComponent.vue';
+import { store } from '../store';
+import ApartmentComponent from '../components/ApartmentComponent.vue';
+
+import axios from "axios";
 
 
 export default {
     name: 'HomePage',
     components: {
-        SearchComponent
+        SearchComponent,
+        ApartmentComponent
+    },
+
+    data() {
+        return {
+            loading: false,
+            urlAddress: "http://127.0.0.1:8000",
+            store,
+        };
+    },
+    methods: {
+        searchSponsoredApartments() {
+            axios.get(this.urlAddress + "/api/sponsorships/", {
+                params: {
+
+                },
+            })
+
+                .then((response) => {
+                    this.store.sponsoredApartments = response.data.results;
+                })
+
+                .catch((error) => {
+                    console.warn(error);
+                });
+        },
+    },
+    created() {
+        this.searchSponsoredApartments();
     },
 
 }
@@ -19,6 +52,18 @@ export default {
     </svg>
     <div class="container">
         <SearchComponent />
+        <div class="row">
+            <div class="col-12">
+                <ApartmentComponent v-for="sponsoredApartment in this.store.sponsoredApartments"
+                    :apartment="sponsoredApartment" :imagePath="urlAddress" />
+                <div v-if="this.store.sponsoredApartments.length === 0"
+                    class="d-flex flex-column align-items-center justify-content-center py-5">
+                    <img src="https://i.pinimg.com/564x/41/33/fc/4133fc74007d45c442cb41f0aeb6d919.jpg"
+                        alt="placeholeder-image" class="w-25 align-content-center">
+                    <h5 class="text-center py-2">Sorry, no apartments found.</h5>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
