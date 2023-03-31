@@ -1,6 +1,5 @@
 <script>
 import { store } from '../store'
-
 export default {
     name: "SearchComponent",
     data() {
@@ -26,20 +25,14 @@ export default {
                     language: "it-IT",
                 },
             };
-
             this.ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
             const searchBoxHTML = this.ttSearchBox.getSearchBoxHTML();
-
-
             const searchInput = document.getElementById('searchInput');
             searchBoxHTML.querySelector('input.tt-search-box-input').value = this.store.searchQuery;
             const searchBoxContainer = document.getElementById('searchBoxContainer');
-
             searchBoxContainer.appendChild(searchBoxHTML);
             searchInput.parentNode.removeChild(searchInput);
-
             console.log(this.store.searchQuery)
-
             this.ttSearchBox.on("tomtom.searchbox.resultselected", (event) => {
                 this.store.searchQuery = event.data.result.address.freeformAddress;
             });
@@ -47,9 +40,7 @@ export default {
         },
     },
 };
-
 </script>
-
 <template lang="">
     <div class="container py-5">
         <div class="row mb-3">
@@ -63,14 +54,12 @@ export default {
                                 type="submit" @click="$emit('searchApartments', store.searchQuery)">
                                 Search
                             </router-link>
-                        
                         </div>
                     </form>
                 </div>
             </div>
     </div>
 </template>
-
 <style lang="scss" scoped>
 @use "bootstrap/scss/bootstrap.scss" as *;
 @use "../styles/general.scss" as *;
