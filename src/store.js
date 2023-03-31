@@ -5,18 +5,14 @@ export const store = reactive({
     searchQuery: "",
 
     apartments: [],
+    apartment: null,
     servicesList: [],
     searchLat: null,
     searchLong: null,
     radius: '',
-
-
-
-    apartment: null,
-
     filters: {
-        n_beds: null,
-        n_rooms: null,
+        n_beds: 1,
+        n_rooms: 1,
         services: []
     },
 })

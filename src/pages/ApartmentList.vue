@@ -126,7 +126,7 @@ export default {
                         </div>
                         <div class="modal-body">
                             <div class="row justify-content-center align-items-center mb-3">
-                                <div class="radius-container">
+                                <div class="radius-container mb-2">
                                     <label for="radius" class="mx-2 mb-0">Radius (km):</label>
                                     <div class="slidecontainer">
                                         <input id="radius" v-model.number="store.radius" type="number" min="1" max="300"
@@ -134,15 +134,27 @@ export default {
                                     </div>
                                 </div>
                                 <div class="row justify-content-center align-items-center mb-3">
-                                    <div class="col-md-6 col-lg-4">
-                                        <label class="form-label">Numero di letti</label>
-                                        <input v-model.number="store.filters.n_beds" type="number" min="1"
-                                            class="form-control">
+                                    <div class="col-md-6">
+                                        <label class="form-label m-0">Beds</label>
+                                        <div class="number-input">
+                                            <button
+                                                onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                            <input class="quantity" min="1" name="quantity" type="number"
+                                                v-model.number="store.filters.n_beds" />
+                                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                                                class="plus"></button>
+                                        </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-4">
-                                        <label class="form-label">Numero di stanze</label>
-                                        <input v-model.number="store.filters.n_rooms" type="number" min="1"
-                                            class="form-control">
+                                    <div class="col-md-6">
+                                        <label class="form-label m-0">Rooms</label>
+                                        <div class="number-input">
+                                            <button
+                                                onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                            <input class="quantity" min="1" name="quantity" type="number"
+                                                v-model.number="store.filters.n_rooms" />
+                                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                                                class="plus"></button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -234,6 +246,76 @@ export default {
     border-radius: 50%;
     background: $main-color;
     cursor: pointer;
+}
+
+input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.number-input {
+    border: 0;
+    display: inline-flex;
+    // border: 1px solid #fe8376;
+    border-radius: .75rem;
+    display: flex;
+    align-items: center;
+}
+
+.number-input,
+.number-input * {
+    box-sizing: border-box;
+}
+
+.number-input button {
+    outline: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    margin: 0;
+    position: relative;
+    // box-shadow: 0px 0px 1px #474747;
+    background-color: $main-color;
+    border-radius: 6px;
+}
+
+.number-input button:before,
+.number-input button:after {
+    font-size: .6rem;
+    display: inline-block;
+    position: absolute;
+    content: '';
+    width: .5rem;
+    height: 2px;
+    background-color: #ffffff;
+    transform: translate(-50%, -50%);
+}
+
+.number-input button.plus:after {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.number-input input[type=number] {
+    font-family: sans-serif;
+    max-width: 3rem;
+    border: none;
+    border-width: 0 2px;
+    font-size: 1rem;
+    height: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: $main-color;
 }
 </style>
 
