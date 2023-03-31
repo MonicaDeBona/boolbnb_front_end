@@ -16,22 +16,22 @@ export default {
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav text-light w-100 justify-content-between align-items-center">
+                    <ul class="navbar-nav text-light w-100 align-items-center">
                         <li class="nav-item">
                             <router-link :to="{ name: 'home' }" class="nav-link"
                                 :class="this.$route.name === 'home' ? 'active' : ''">
                                 <img src="../assets/img/Logo.png" alt="Logo BoolBnB">
                             </router-link>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item ms-0 ms-lg-auto">
                             <router-link :to="{ name: 'apartments' }" class="nav-link"
                                 :class="this.$route.name === 'apartments' ? 'active' : ''">
-                                All Apartments
+                                Apartments
                             </router-link>
                         </li>
-                        <li class="nav-item d-flex align-items-center">
-                            <font-awesome-icon style="color:black" :icon="['fas', 'user']" />
-                            <a class="nav-link p-2" href="http://127.0.0.1:8000/">
+                        <li class="nav-item ms-0 ms-lg-3 d-flex align-items-center">
+                            <!-- <font-awesome-icon style="color:black" :icon="['fas', 'user']" /> -->
+                            <a class="nav-link btn account-btn" href="http://127.0.0.1:8000/">
                                 Account
                             </a>
                         </li>
@@ -45,6 +45,8 @@ export default {
 
 
 <style scoped lang="scss">
+@use "../styles/general.scss" as *;
+
 header {
     box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
@@ -57,6 +59,16 @@ nav {
         img {
             width: 130px;
         }
+    }
+}
+
+.account-btn{
+    background-color: $main-color;
+    color: white;
+
+    &:hover{
+        color: white;
+        background-color: $btn-hover;
     }
 }
 </style>
