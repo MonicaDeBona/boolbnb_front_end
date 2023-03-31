@@ -43,9 +43,9 @@ export default {
 
             <p class="one-line custom_margin text-capitalize me-2">
                 {{ apartment.address }}
-                <span class="one-line custom_margin text-capitalize ms-3" v-if="apartment.distance != null">
-                    Distance: {{ apartment.distance }} Km
-                </span>
+            </p>
+            <p class="one-line custom_margin text-capitalize me-3 fw-bold" v-if="apartment.distance != null">
+                Distance: {{ apartment.distance }} Km
             </p>
             <ul class=" list-unstyled">
                 <li class="text-capitalize" v-for="service in apartment.services">
