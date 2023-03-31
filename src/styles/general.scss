@@ -1,5 +1,6 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'partials/showComponent';
+@import 'partials/homepage';
 
 body {
     font-family: 'Urbanist', sans-serif;
@@ -20,6 +21,7 @@ body {
 .tt-search-box {
     margin-top: 0 !important;
     flex-grow: 1;
+    border-radius: 10px;
 
 }
 

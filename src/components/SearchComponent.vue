@@ -29,6 +29,7 @@ export default {
             const searchBoxHTML = this.ttSearchBox.getSearchBoxHTML();
             const searchInput = document.getElementById('searchInput');
             searchBoxHTML.querySelector('input.tt-search-box-input').value = this.store.searchQuery;
+
             const searchBoxContainer = document.getElementById('searchBoxContainer');
             searchBoxContainer.appendChild(searchBoxHTML);
             searchInput.parentNode.removeChild(searchInput);
@@ -58,8 +59,8 @@ export default {
 };
 </script>
 <template lang="">
-    <div class="container py-5">
-        <div class="row mb-3">
+    <div class="container py-5 px-0">
+        <div class="row mb-3 w-100 rounded-3">
                 <div class="col-12">
                     <form @submit.prevent="searchApartments" class="d-flex">
                         <div class="position-relative flex-grow-1" id="searchBoxContainer">
