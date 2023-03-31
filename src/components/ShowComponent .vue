@@ -49,7 +49,7 @@ export default {
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-sm-7 mt-5">
+            <div class="col-lg-7 col-12 mt-5">
                 <div class="py-3 fw-bold">
                     <h2>Aparment's infos</h2>
                     <span class="py-2 my_info">
@@ -88,11 +88,11 @@ export default {
                 </div>
             </div>
 
-            <div class="col-12 col-sm-5 ">
+            <div class="col-lg-5 col-12 ">
 
-                <div class=" ms-5 position-static d-block py-5" tabindex="-1" role="dialog" id="modalTour">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content rounded-4 shadow">
+                <div class="ms-lg-5 py-5">
+                    <div>
+                        <div class="rounded-4 shadow">
                             <div class="modal-body p-3">
                                 <ContactForm />
                             </div>
