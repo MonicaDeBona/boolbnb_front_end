@@ -1,7 +1,8 @@
 
 <script>
 export default {
-    name: 'AppHeader'
+    name: 'AppHeader',
+
 }
 </script>
 
@@ -11,23 +12,32 @@ export default {
 
             <div class="container-fluid">
 
-                <button class="navbar-toggler ms-auto me-2 me-sm-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler ms-auto me-2 me-sm-4" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav text-light w-100 align-items-center">
-                        <li class="nav-item">
-                            <router-link :to="{ name: 'home' }" class="nav-link py-0 py-lg-0"
-                                :class="this.$route.name === 'home' ? 'active' : ''">
-                                <img src="../assets/img/Logo.png" alt="Logo BoolBnB">
+                <ul class="navbar-nav text-light w-100 align-items-center">
+                    <li class="nav-item">
+                        <router-link :to="{ name: 'home' }" class="nav-link py-0 py-lg-0"
+                            :class="this.$route.name === 'home' ? 'active' : ''">
+                            <img src="../assets/img/Logo.png" alt="Logo BoolBnB">
                             </router-link>
                         </li>
-                        <li class="nav-item ms-0 ms-lg-auto">
+                        <!-- <li class="nav-item ms-0 ms-lg-auto">
                             <router-link :to="{ name: 'apartments' }" class="nav-link"
                                 :class="this.$route.name === 'apartments' ? 'active' : ''">
                                 Apartments
                             </router-link>
+                            </li> -->
+                        <!-- Possibile soluzione veloce per riavere la lista degli appartamenti ma hardrefresha -->
+                        <li class="nav-item ms-0 ms-lg-auto">
+                            <a href="/apartments" class="nav-link"
+                                :class="this.$route.name === 'apartments' ? 'active' : ''">
+                                Apartments
+                            </a>
                         </li>
                         <li class="nav-item ms-0 ms-lg-3 d-flex align-items-center">
                             <a class="nav-link btn account-btn p-1 px-2 pd-lg-0 m-2 m-lg-0" href="http://127.0.0.1:8000/">
@@ -61,17 +71,17 @@ nav {
     }
 }
 
-button.navbar-toggler{
+button.navbar-toggler {
     // border-color: $main-color;
     color: $main-color;
 
 }
 
-.account-btn{
+.account-btn {
     background-color: $main-color;
     color: white;
 
-    &:hover{
+    &:hover {
         color: white;
         background-color: $btn-hover;
     }
