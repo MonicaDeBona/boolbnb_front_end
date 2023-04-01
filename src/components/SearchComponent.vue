@@ -9,6 +9,14 @@ export default {
             ttSearchBox: null,
         };
     },
+    // rimane in ascolto sul cambio della proprietà sideEffect, quando cambia fa ripartire la ricerca
+    watch: {
+        'store.sideEffect'() {
+            this.store.resetStore();
+            document.querySelector('input.tt-search-box-input').value = this.store.searchQuery;
+            this.$emit('searchApartments', this.store.searchQuery)
+        }
+    },
     mounted() {
         this.searchOptions();
     },
@@ -45,7 +53,7 @@ export default {
                 // longitudine ricerca
                 const searchLong = result.position.lng;
                 this.store.searchLong = searchLong;
-                this.store.radius = result.position.radius;
+                // this.store.radius = result.position.radius;
 
                 this.store.searchQuery = result.address.freeformAddress;
                 console.log("ricerca : ", this.store.searchQuery)

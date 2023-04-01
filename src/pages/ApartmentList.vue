@@ -105,7 +105,6 @@ export default {
     },
 
     created() {
-        this.store.radius = 20;
         this.searchApartments();
     },
 
