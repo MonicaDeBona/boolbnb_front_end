@@ -5,9 +5,11 @@ import axios from 'axios';
 import { store } from '../store';
 
 
+
 export default {
 
     name: 'ContactForm',
+
 
     data() {
         return {
@@ -147,8 +149,8 @@ export default {
 
             <div class="mb-4">
                 <!-- <button class="btn my_btn" @click.prevent="sendContactForm">
-                                                                                            Send Message
-                                                                                        </button> -->
+                                                                                                Send Message
+                                                                                            </button> -->
                 <button class="btn btn-lg my_btn w-100" @click.prevent="sendContactForm">Great,
                     thanks!</button>
             </div>
