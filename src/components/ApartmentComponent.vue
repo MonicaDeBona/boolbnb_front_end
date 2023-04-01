@@ -40,7 +40,9 @@ export default {
             </div>
 
             <h5 class=" pt-2 fw-bold pt-3 text-capitalize"> {{ apartment.title }} </h5>
-
+            <p>
+                {{ apartment.n_price }}
+            </p>
             <p class="one-line custom_margin text-capitalize me-2">
                 {{ apartment.address }}
             </p>
