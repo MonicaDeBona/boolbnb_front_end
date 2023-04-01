@@ -17,27 +17,25 @@ export default {
 </script>
 
 <template>
-  <section id="page-container">
     <AppHeader />
     <router-view></router-view>
     <AppFooter />
-  </section>
 </template>
 
 <style lang="scss">
 @use './styles/general.scss' as *;
 
-#page-container {
-  position: relative;
-  min-height: 100vh;
-}
+// #page-container {
+//   position: relative;
+//   min-height: 100vh;
+// }
 
 
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height:57px;            /* Footer height */
-}
+// footer {
+//   position: absolute;
+//   bottom: 0;
+//   width: 100%;
+//   height:57px;            /* Footer height */
+// }
 
 </style>

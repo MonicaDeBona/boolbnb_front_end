@@ -6,7 +6,7 @@ export default {
 </script>
 
 <template>
-    <footer class="mt-auto">
+    <footer>
         <div class="container-fluid text-light fw-bold">
             <div class="row">
                 <div class="col-md-6 col-sm-12 py-3 d-flex align-items-center">
