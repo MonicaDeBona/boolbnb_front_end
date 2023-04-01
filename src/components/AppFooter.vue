@@ -34,6 +34,8 @@ export default {
     footer{
         border-top: 1px $main-color solid;
         background-color: $main-color;
+        position:absolute;
+        width: 100%;
 
         a {
             text-decoration: none;
