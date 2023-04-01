@@ -1,8 +1,21 @@
 
 <script>
+import { store } from '../store';
 export default {
     name: 'AppHeader',
-
+    data() {
+        return {
+            store,
+        }
+    },
+    methods: {
+        goToApartments() {
+            //deve essere sempre il valore opposto a quello precedente
+            this.store.sideEffect = !this.store.sideEffect;
+            //forza la rotta in apartments 
+            this.$router.push({ name: 'apartments' })
+        }
+    },
 }
 </script>
 
@@ -19,22 +32,15 @@ export default {
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav text-light w-100 align-items-center">
-                    <li class="nav-item">
-                        <router-link :to="{ name: 'home' }" class="nav-link py-0 py-lg-0"
-                            :class="this.$route.name === 'home' ? 'active' : ''">
-                            <img src="../assets/img/Logo.png" alt="Logo BoolBnB">
+                    <ul class="navbar-nav text-light w-100 align-items-center">
+                        <li class="nav-item">
+                            <router-link :to="{ name: 'home' }" class="nav-link py-0 py-lg-0"
+                                :class="this.$route.name === 'home' ? 'active' : ''">
+                                <img src="../assets/img/Logo.png" alt="Logo BoolBnB">
                             </router-link>
                         </li>
-                        <!-- <li class="nav-item ms-0 ms-lg-auto">
-                            <router-link :to="{ name: 'apartments' }" class="nav-link"
-                                :class="this.$route.name === 'apartments' ? 'active' : ''">
-                                Apartments
-                            </router-link>
-                            </li> -->
-                        <!-- Possibile soluzione veloce per riavere la lista degli appartamenti ma hardrefresha -->
                         <li class="nav-item ms-0 ms-lg-auto">
-                            <a href="/apartments" class="nav-link"
+                            <a @click.prevent="goToApartments()" class="nav-link"
                                 :class="this.$route.name === 'apartments' ? 'active' : ''">
                                 Apartments
                             </a>
