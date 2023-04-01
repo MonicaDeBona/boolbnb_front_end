@@ -12,7 +12,6 @@ export default {
         ApartmentComponent,
         SearchComponent,
         AppLoader
-
     },
 
     data() {
@@ -20,22 +19,12 @@ export default {
             loading: true,
             urlAddress: "http://127.0.0.1:8000",
             store,
-            selectedServices: [],
-            serviceList: [],
+            // selectedServices: [],
             searchLat: null,
             searchLong: null,
         };
     },
     computed: {
-        uniqueServices() { // funzione che scorre tutti gli appartamenti e per ogni appartamento, scorre i suoi servizi e verifica se quel servizio è già presente nella lista dei servizi unici, se non è presente, lo pusha.
-            let services = [];
-            services.forEach((service) => {
-                if (!services.some((serviceItem) => serviceItem.id === service.id)) {
-                    services.push(service);
-                }
-            });
-            return services;
-        },
         radiusInKm() {
             return (this.store.radius);
         }
@@ -50,7 +39,7 @@ export default {
                     address: store.searchQuery,
                     n_beds: store.filters.n_beds,
                     n_rooms: store.filters.n_rooms,
-                    services: this.selectedServices,
+                    services: store.filters.services,
                     radius: store.radius,
                     latitude: store.searchLat,
                     longitude: store.searchLong,
@@ -96,7 +85,7 @@ export default {
                     })
                     this.store.apartments = apartments;
                     console.log(apartments);
-                    this.store.serviceList = response.data.results.services;
+                    this.store.servicesList = response.data.results.services;
                     this.loading = false;
                 })
                 .catch((error) => {
@@ -181,9 +170,9 @@ export default {
                                 </div>
                             </div>
                             <div class="row ms-auto">
-                                <div class="form-check col-6" v-for="service in this.store.serviceList" :key="service.id">
+                                <div class="form-check col-6" v-for="service in this.store.servicesList" :key="service.id">
                                     <input class="form-check-input" type="checkbox" :value="service.slug"
-                                        v-model="selectedServices" />
+                                        v-model="store.filters.services" />
                                     <label class="form-check-label text-capitalize">{{ service.name }}</label>
                                 </div>
                             </div>
