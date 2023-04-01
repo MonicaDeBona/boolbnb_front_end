@@ -40,7 +40,7 @@ export default {
                             </router-link>
                         </li>
                         <li class="nav-item ms-0 ms-lg-auto">
-                            <a @click.prevent="goToApartments()" class="nav-link"
+                            <a href="#" @click.prevent="goToApartments()" class="nav-link"
                                 :class="this.$route.name === 'apartments' ? 'active' : ''">
                                 Apartments
                             </a>
