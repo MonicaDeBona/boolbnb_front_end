@@ -3,7 +3,7 @@ import { reactive } from 'vue';
 export const store = reactive({
 
     searchQuery: "",
-
+    sponsoredApartments: [],
     apartments: [],
     apartment: null,
     servicesList: [],
