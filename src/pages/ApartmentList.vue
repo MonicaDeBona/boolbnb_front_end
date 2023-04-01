@@ -1,6 +1,7 @@
 <script>
 import ApartmentComponent from "../components/ApartmentComponent.vue";
 import SearchComponent from "../components/SearchComponent.vue";
+import AppLoader from '../components/AppLoader.vue';
 import { store } from '../store';
 
 import axios from "axios";
@@ -9,13 +10,14 @@ export default {
     name: "ApartmentList",
     components: {
         ApartmentComponent,
-        SearchComponent
+        SearchComponent,
+        AppLoader
 
     },
 
     data() {
         return {
-            loading: false,
+            loading: true,
             urlAddress: "http://127.0.0.1:8000",
             store,
             selectedServices: [],
@@ -95,6 +97,7 @@ export default {
                     this.store.apartments = apartments;
                     console.log(apartments);
                     this.store.serviceList = response.data.results.services;
+                    this.loading = false;
                 })
                 .catch((error) => {
                     console.warn(error);
@@ -109,7 +112,7 @@ export default {
             if (this.store.filters.n_rooms > 1) {
                 this.store.filters.n_rooms--
             }
-        }
+        },
     },
 
     created() {
@@ -123,7 +126,8 @@ export default {
 
 <template>
     <section>
-        <div class="container">
+        <AppLoader v-if="loading" />
+        <div class="container" v-if="!loading">
             <div class="d-flex align-items-center">
                 <SearchComponent @searchApartments="searchApartments" />
 
