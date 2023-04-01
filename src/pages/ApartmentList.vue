@@ -92,6 +92,16 @@ export default {
                     console.warn(error);
                 });
         },
+        decrementBeds() {
+            if (this.store.filters.n_beds > 1) {
+                this.store.filters.n_beds--
+            }
+        },
+        decrementRooms() {
+            if (this.store.filters.n_rooms > 1) {
+                this.store.filters.n_rooms--
+            }
+        }
     },
 
     created() {
@@ -141,23 +151,19 @@ export default {
                                     <div class="col-md-6">
                                         <label class="form-label m-0">Beds</label>
                                         <div class="number-input">
-                                            <button
-                                                onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                            <button @click="decrementBeds"></button>
                                             <input class="quantity" min="1" name="quantity" type="number"
                                                 v-model.number="store.filters.n_beds" />
-                                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                                                class="plus"></button>
+                                            <button @click="store.filters.n_beds++" class="plus"></button>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label m-0">Rooms</label>
                                         <div class="number-input">
-                                            <button
-                                                onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                            <button @click="decrementRooms"></button>
                                             <input class="quantity" min="1" name="quantity" type="number"
                                                 v-model.number="store.filters.n_rooms" />
-                                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                                                class="plus"></button>
+                                            <button @click="store.filters.n_rooms++" class="plus"></button>
                                         </div>
                                     </div>
                                 </div>
