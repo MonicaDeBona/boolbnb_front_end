@@ -83,9 +83,17 @@ export default {
                             // console.log("haversine lon: ", lon1) // aggiungi la distanza all'oggetto appartamento
                         });
                     }
-
+                    apartments.sort((a, b) => {
+                        if (parseFloat(a.distance) > parseFloat(b.distance)) {
+                            return 1
+                        }
+                        if (parseFloat(a.distance) == parseFloat(b.distance)) {
+                            return 0
+                        }
+                        return -1
+                    })
                     this.store.apartments = apartments;
-                    // console.log(this.store.apartments);
+                    console.log(apartments);
                     this.store.serviceList = response.data.results.services;
                 })
                 .catch((error) => {
