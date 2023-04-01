@@ -23,7 +23,7 @@ export default {
     data() {
         return {
 
-            loading: false,
+            loading: true,
             urlAddress: 'http://127.0.0.1:8000',
             store
         }
@@ -41,6 +41,7 @@ export default {
                 .then((response) => {
                     //console.log(response.data.results.data);
                     this.store.apartment = response.data.results;
+                    this.loading = false;
                 })
 
                 .catch(function (error) {
@@ -57,8 +58,8 @@ export default {
 <template>
     <section class="container">
 
-        <ShowComponent :apartment="this.store.apartment" :isShow="true" :imagePath="urlAddress" />
-        <ShowMapComponent :key="this.store.apartment.id" />
+        <ShowComponent v-if="!loading" :apartment="this.store.apartment" :isShow="true" :imagePath="urlAddress" />
+        <ShowMapComponent v-if="!loading" :key="this.store.apartment.id" />
         <!-- <ContactForm /> -->
 
     </section>
