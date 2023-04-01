@@ -3,6 +3,7 @@
 import ShowComponent from '../components/ShowComponent .vue'
 import ContactForm from '../components/ContactForm.vue';
 import ShowMapComponent from '../components/ShowMapComponent.vue';
+import AppLoader from '../components/AppLoader.vue';
 
 //importo axios
 import axios from 'axios';
@@ -18,11 +19,11 @@ export default {
         ShowComponent,
         ContactForm,
         ShowMapComponent,
+        AppLoader
     },
 
     data() {
         return {
-
             loading: true,
             urlAddress: 'http://127.0.0.1:8000',
             store
@@ -47,6 +48,9 @@ export default {
                 .catch(function (error) {
                     console.warn(error);
                 });
+        },
+        stopLoader() {
+            this.loading = false;
         }
     },
     created() {
@@ -56,6 +60,7 @@ export default {
 </script>
 
 <template>
+    <AppLoader v-if="loading" />
     <section class="container">
 
         <ShowComponent v-if="!loading" :apartment="this.store.apartment" :isShow="true" :imagePath="urlAddress" />

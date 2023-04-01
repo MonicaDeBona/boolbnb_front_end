@@ -7,7 +7,7 @@ export default {
   components: {
     AppHeader,
     AppFooter,
-},
+  },
   data() {
     return {
 
@@ -17,14 +17,15 @@ export default {
 </script>
 
 <template>
-  <AppHeader/>
+  <AppHeader />
   <router-view></router-view>
   <AppFooter />
 </template>
 
 <style lang="scss">
 @use './styles/general.scss' as *;
-body{
+
+body {
   min-height: 100vh;
 }
 </style>
