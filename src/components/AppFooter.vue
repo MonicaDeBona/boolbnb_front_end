@@ -6,18 +6,21 @@ export default {
 </script>
 
 <template>
-    <footer>
-        <div class="container-fluid">
-            <div class="row justify-content-between">
-                <div class="col-6">
-                    <p>
-                        Copyright - Boolbnb 
-                    </p>
+    <footer class="mt-auto">
+        <div class="container-fluid text-light fw-bold">
+            <div class="row">
+                <div class="col-md-6 col-sm-12 py-3 d-flex align-items-center">
+                    <span>
+                        Copyright &copy Team 3 - Boolbnb 
+                    </span>
                 </div>
-                <div class="col-6 text-end">
-                    <p>
-                        Made by: Team 3
-                    </p>
+                <div class="col-md-6 col-sm-12 d-flex justify-content-md-end py-3">
+                    <font-awesome-icon :icon="['fab', 'github']" />
+                    <a href="https://github.com/AndreaFumagalli4">Andrea</a>
+                    <a href="https://github.com/AngeloTripodi">Angelo</a>
+                    <a href="https://github.com/Frapenle">Francesco</a>
+                    <a href="https://github.com/giuliaballestrero">Giulia</a>
+                    <a href="https://github.com/MonicaDeBona">Monica</a>
                 </div>
             </div>
         </div>
@@ -30,10 +33,25 @@ export default {
 
     footer{
         border-top: 1px $main-color solid;
+        background-color: $main-color;
+        position:absolute;
+        width: 100%;
 
-        p{
-            margin-bottom: 0;
-            padding: .75rem 0;
+        a {
+            text-decoration: none;
+            color: white;
+            padding: 0 .5rem;
+
+            &:hover {
+                background-color: white;
+                color: $main-color;
+                border-radius: 10px;
+            }
         }
+
+        span {
+            padding: 0 .5rem;
+        }
+
     }
 </style>
