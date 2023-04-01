@@ -131,10 +131,10 @@ export default {
                         <div class="modal-body">
                             <div class="row justify-content-center align-items-center mb-3">
                                 <div class="radius-container mb-2">
-                                    <p>Radius: {{ radiusInKm }} km</p>
+                                    <p class="m-0">Radius: {{ radiusInKm }} km</p>
                                     <div class="slidecontainer">
                                         <input id="radius" v-model.number="store.radius" type="range" min="1" max="300"
-                                            class="form-control slider" />
+                                            class="" />
                                     </div>
                                 </div>
                                 <div class="row justify-content-center align-items-center mb-3">
@@ -214,42 +214,104 @@ export default {
     margin-top: 8px;
 }
 
-.slidecontainer {
-    width: 100%;
-}
-
-.slider {
-
-    width: 100%;
-    height: 15px;
-    border-radius: 5px;
-    background: #d3d3d3;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-}
-
-.slider:hover {
-    opacity: 1;
-}
-
-.slider::-webkit-slider-thumb {
+input[type=range] {
     -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: $main-color;
+    margin: 10px 0;
+    width: 100%;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 9px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 0px #000000;
+    background: #f9a9a1;
+    border-radius: 4px;
+    border: 0px solid #000000;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    box-shadow: 0px 0px 1px #3a3a3a;
+    border: 0px solid #000000;
+    height: 20px;
+    width: 20px;
+    border-radius: 4px;
+    background: #fe8376;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -5.5px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #f9a9a1;
+}
+
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 9px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 0px #000000;
+    background: #f9a9a1;
+    border-radius: 4px;
+    border: 0px solid #000000;
+}
+
+input[type=range]::-moz-range-thumb {
+    box-shadow: 0px 0px 1px #3a3a3a;
+    border: 0px solid #000000;
+    height: 20px;
+    width: 20px;
+    border-radius: 4px;
+    background: #fe8376;
     cursor: pointer;
 }
 
-.slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: $main-color;
+input[type=range]::-ms-track {
+    width: 100%;
+    height: 9px;
     cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: #f9a9a1;
+    border: 0px solid #000000;
+    border-radius: 8px;
+    box-shadow: 0px 0px 0px #000000;
+}
+
+input[type=range]::-ms-fill-upper {
+    background: #f9a9a1;
+    border: 0px solid #000000;
+    border-radius: 8px;
+    box-shadow: 0px 0px 0px #000000;
+}
+
+input[type=range]::-ms-thumb {
+    box-shadow: 0px 0px 1px #3a3a3a;
+    border: 0px solid #000000;
+    height: 20px;
+    width: 20px;
+    border-radius: 4px;
+    background: #fe8376;
+    cursor: pointer;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+    background: #f9a9a1;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+    background: #f9a9a1;
 }
 
 input[type="number"] {
