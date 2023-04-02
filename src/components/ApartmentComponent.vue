@@ -7,6 +7,10 @@ export default {
             type: Object,
             required: true,
         },
+        'sponsored': {
+            type: Boolean,
+            required: true,
+        },
 
         // 'isShow': {
         //     type: Boolean,
@@ -33,6 +37,9 @@ export default {
 
         <router-link class=" text-decoration-none text-black" :to="{ name: 'apartment', params: { slug: apartment.slug } }">
             <div class="card border-0 align-item-stretch align-content-stretch position-relative">
+                <div class="position-absolute top-0 end-0 sponsored-icon" v-if="sponsored">
+                    <font-awesome-icon :icon="['fas', 'crown']" />
+                </div>
                 <img v-if="!apartment.image.startsWith('uploads')" :src="imagePath + '/img/' + apartment.image"
                     class="img-fluid rounded-3 my_img_card" :alt="apartment.title">
                 <img v-else :src="imagePath + '/storage/' + apartment.image" class="rounded-3 my_img_card img-fluid"
@@ -53,10 +60,10 @@ export default {
                 Distance: {{ apartment.distance }} Km
             </p>
             <!-- <ul class=" list-unstyled">
-                                                                            <li class="text-capitalize" v-for="service in apartment.services">
-                                                                                <span class="fw-bold"> &bull; </span> {{ service.name }}
-                                                                            </li>
-                                                                        </ul> -->
+                                                                                                                                <li class="text-capitalize" v-for="service in apartment.services">
+                                                                                                                                    <span class="fw-bold"> &bull; </span> {{ service.name }}
+                                                                                                                                </li>
+                                                                                                                            </ul> -->
         </router-link>
     </div>
 </template>

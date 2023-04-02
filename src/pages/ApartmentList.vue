@@ -83,7 +83,46 @@ export default {
                         }
                         return -1
                     })
+                    const sponsoredApartments = response.data.results.sponsored_apartments;
+                    console.log(sponsoredApartments)
+                    // console.log(apartments)
+
+                    // Calcola la distanza tra l'indirizzo inserito dall'utente e la posizione di ogni appartamento
+                    // If per mostrare i km solo quando viene effettuata una ricerca
+                    if (searchLat !== null || searchLong !== null) {
+                        sponsoredApartments.forEach((apartment) => {
+                            const R = 6371; // raggio della Terra in km
+                            const lat1 = searchLat; //latitudine ricerca
+                            const lon1 = searchLong; //longitudine ricerca
+                            const lat2 = apartment.latitude; //latitudine appartamento
+                            const lon2 = apartment.longitude; // longitudine appartamento
+                            const dLat = ((lat2 - lat1) * Math.PI) / 180;
+                            const dLon = ((lon2 - lon1) * Math.PI) / 180;
+                            const a =
+                                Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                                Math.cos((lat1 * Math.PI) / 180) *
+                                Math.cos((lat2 * Math.PI) / 180) *
+                                Math.sin(dLon / 2) *
+                                Math.sin(dLon / 2);
+                            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                            const distance = R * c; // distanza in km
+                            apartment.distance = distance.toFixed(1);
+                            // console.log("haversine lat: ", lat1)
+                            // console.log("haversine long: ", lon1)
+                            // console.log("haversine lon: ", lon1) // aggiungi la distanza all'oggetto appartamento
+                        });
+                    }
+                    sponsoredApartments.sort((a, b) => {
+                        if (parseFloat(a.distance) > parseFloat(b.distance)) {
+                            return 1
+                        }
+                        if (parseFloat(a.distance) == parseFloat(b.distance)) {
+                            return 0
+                        }
+                        return -1
+                    })
                     this.store.apartments = apartments;
+                    this.store.indexSponsoredApartments = sponsoredApartments;
                     console.log(apartments);
                     this.store.servicesList = response.data.results.services;
                     this.loading = false;
@@ -92,6 +131,7 @@ export default {
                     console.warn(error);
                 });
         },
+
         decrementBeds() {
             if (this.store.filters.n_beds > 1) {
                 this.store.filters.n_beds--
@@ -189,11 +229,13 @@ export default {
             <!-- <h1 class="text-center py-3">Apartments in {{ store.searchQuery.toUpperCase() }}</h1> -->
             <div
                 class="row align-items-center justify-content-center justify-content-sm-start d-flex align-items-stretch flex-wrap">
+                <ApartmentComponent v-for="apartmentElement in this.store.indexSponsoredApartments"
+                    :apartment="apartmentElement" :imagePath="urlAddress" :sponsored="true" />
                 <ApartmentComponent v-for="apartmentElement in this.store.apartments" :apartment="apartmentElement"
-                    :imagePath="urlAddress" />
+                    :imagePath="urlAddress" :sponsored="false" />
                 <!--Qui andranno le card-->
                 <!--Messaggio da mostrare all'utente se non viene trovato nessun risultato-->
-                <div v-if="this.store.apartments.length === 0"
+                <div v-if="this.store.apartments.length === 0 && this.store.indexSponsoredApartments.length === 0"
                     class="d-flex flex-column align-items-center justify-content-center py-5">
                     <img src="https://i.pinimg.com/564x/41/33/fc/4133fc74007d45c442cb41f0aeb6d919.jpg"
                         alt="placeholeder-image" class="w-25 align-content-center">
