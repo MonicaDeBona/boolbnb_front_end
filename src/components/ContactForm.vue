@@ -93,8 +93,8 @@ export default {
             </div>
 
 
-            <div class="mb-4 pt-3">
-                <label for="contact_name" class="form-label">
+            <div class="mb-3 pt-3">
+                <label for="contact_name" class="form-label mb-1">
                     Name:*
                 </label>
 
@@ -107,8 +107,8 @@ export default {
             </div>
 
 
-            <div class="mb-4">
-                <label for="contact_email" class="form-label">
+            <div class="mb-3">
+                <label for="contact_email" class="form-label mb-1">
                     Email:*
                 </label>
 
@@ -120,8 +120,8 @@ export default {
                 </p>
             </div>
 
-            <div class="mb-4">
-                <label for="contact_number" class="form-label">
+            <div class="mb-3">
+                <label for="contact_number" class="form-label mb-1">
                     Phone Number:
                 </label>
 
@@ -133,8 +133,8 @@ export default {
                 </p>
             </div>
 
-            <div class="mb-4">
-                <label for="contact_message" class="form-label">
+            <div class="mb-3">
+                <label for="contact_message" class="form-label mb-1">
                     Message:*
                 </label>
 
@@ -147,10 +147,10 @@ export default {
             </div>
 
 
-            <div class="mb-4">
+            <div class="mb-3">
                 <!-- <button class="btn my_btn" @click.prevent="sendContactForm">
-                                                                                                Send Message
-                                                                                            </button> -->
+                                                                                                                    Send Message
+                                                                                                                </button> -->
                 <button class="btn btn-lg my_btn w-100" @click.prevent="sendContactForm">Great,
                     thanks!</button>
             </div>
