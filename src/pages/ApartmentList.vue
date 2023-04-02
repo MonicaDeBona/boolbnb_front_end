@@ -139,25 +139,33 @@ export default {
                                 </div>
                                 <div class="row justify-content-center align-items-center mb-3">
                                     <div class="col-md-6">
-                                        <label class="form-label m-0">Beds</label>
-                                        <div class="number-input">
-                                            <button
-                                                onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-                                            <input class="quantity" min="1" name="quantity" type="number"
-                                                v-model.number="store.filters.n_beds" />
-                                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                                                class="plus"></button>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <label class="form-label m-0">Beds</label>
+                                            <div class="number-input">
+                                                <button
+                                                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                                <input class="quantity" min="1" name="quantity" type="number"
+                                                    v-model.number="store.filters.n_beds" />
+                                                <button
+                                                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                                                    class="plus"></button>
+                                            </div>
+
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label m-0">Rooms</label>
-                                        <div class="number-input">
-                                            <button
-                                                onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-                                            <input class="quantity" min="1" name="quantity" type="number"
-                                                v-model.number="store.filters.n_rooms" />
-                                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                                                class="plus"></button>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <label class="form-label m-0">Rooms</label>
+                                            <div class="number-input">
+                                                <button
+                                                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                                <input class="quantity" min="1" name="quantity" type="number"
+                                                    v-model.number="store.filters.n_rooms" />
+                                                <button
+                                                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                                                    class="plus"></button>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -270,6 +278,15 @@ input[type=range]::-moz-range-thumb {
     border-radius: 4px;
     background: #fe8376;
     cursor: pointer;
+
+    &:hover {
+        background-color: #f36859;
+    }
+
+    &:active {
+        background-color: #ff6958;
+        transition: .4 ease-in-out;
+    }
 }
 
 input[type=range]::-ms-track {
@@ -311,7 +328,7 @@ input[type=range]:focus::-ms-fill-lower {
 }
 
 input[type=range]:focus::-ms-fill-upper {
-    background: #f9a9a1;
+    background: #a1f9b1;
 }
 
 input[type="number"] {
@@ -354,6 +371,16 @@ input[type=number]::-webkit-outer-spin-button {
     // box-shadow: 0px 0px 1px #474747;
     background-color: $main-color;
     border-radius: 6px;
+
+    &:hover {
+        background-color: #f36859;
+    }
+
+    &:active {
+        background-color: #f9a9a1;
+        transition: .4 ease-in-out;
+    }
+
 }
 
 .number-input button:before,
@@ -372,9 +399,13 @@ input[type=number]::-webkit-outer-spin-button {
     transform: translate(-50%, -50%) rotate(90deg);
 }
 
+input.quantity:focus-visible {
+    outline: none;
+}
+
 .number-input input[type=number] {
     font-family: sans-serif;
-    max-width: 3rem;
+    max-width: 1.7rem;
     border: none;
     border-width: 0 2px;
     font-size: 1rem;
@@ -382,6 +413,7 @@ input[type=number]::-webkit-outer-spin-button {
     font-weight: bold;
     text-align: center;
     color: $main-color;
+
 }
 </style>
 
