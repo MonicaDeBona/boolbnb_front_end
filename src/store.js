@@ -28,4 +28,5 @@ export const store = reactive({
 
     // ci serve per avere una proprietà che cambi per attivare il watch
     sideEffect: false,
+    indexSponsoredApartments: [],
 })

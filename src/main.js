@@ -10,11 +10,11 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faCheck, faList, faCircleExclamation, faUser, faHotel, faPaperPlane, faBed, } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faList, faCircleExclamation, faUser, faHotel, faPaperPlane, faBed, faCrown } from '@fortawesome/free-solid-svg-icons'
 
 
 /* add icons to the library */
-library.add(faCheck, faList, faCircleExclamation, faUser, faHotel, faPaperPlane, faBed,)
+library.add(faCheck, faList, faCircleExclamation, faUser, faHotel, faPaperPlane, faBed, faCrown)
 
 createApp(App)
     .use(router)
