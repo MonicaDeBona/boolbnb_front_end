@@ -37,13 +37,13 @@ export default {
                     {{ apartment.address }}
                 </h5>
             </div>
-            <div class="col-12">
-
-            </div>
         </div>
         <div class="row">
             <div class="col-12">
-                <div>
+                <div class="position-relative">
+                    <div class="position-absolute top-0 end-0 sponsored-icon-show" v-if="apartment.sponsorships_count">
+                        <font-awesome-icon :icon="['fas', 'crown']" />
+                    </div>
                     <img v-if="!apartment.image.startsWith('uploads')" :src="imagePath + '/img/' + apartment.image"
                         class=" rounded-3 image-container img-fluid" :alt="apartment.title">
                     <img v-else :src="imagePath + '/storage/' + apartment.image" class="img-fluid rounded-3 image-container"
@@ -136,5 +136,11 @@ export default {
 .price {
     color: $main-color;
     font-size: 1.3rem;
+}
+
+.sponsored-icon-show {
+    color: $main-color;
+    font-size: 1.5rem;
+    padding: .8rem 1.2rem;
 }
 </style>
