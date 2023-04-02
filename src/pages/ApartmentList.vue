@@ -113,7 +113,7 @@ export default {
 </script>
 
 <template>
-    <section>
+    <section class="apartment-list-main-section">
         <AppLoader v-if="loading" />
         <div class="container" v-if="!loading">
             <div class="d-flex align-items-center">
@@ -207,6 +207,10 @@ export default {
 
 <style lang="scss" scoped>
 @use '../styles/general.scss' as *;
+
+.apartment-list-main-section {
+    min-height: calc(100vh - 56px - 56px);
+}
 
 .card-wrapper {
     display: flex;
