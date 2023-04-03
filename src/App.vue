@@ -1,30 +1,68 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import AppHeader from './components/AppHeader.vue';
+import AppFooter from './components/AppFooter.vue';
+
+export default {
+  name: 'AppVue',
+  components: {
+    AppHeader,
+    AppFooter,
+  },
+  data() {
+    return {
+
+    }
+  },
+}
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+    <AppHeader />
+    <router-view></router-view>
+    <AppFooter />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<style lang="scss">
+@use './styles/general.scss' as *;
+
+
+//footer responsiveness
+@media screen and (min-width: 767px) { 
+
+body {
+min-height: 100vh;
+position: relative;
+margin: 0;
+padding-bottom: 57px;
+box-sizing: border-box;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+footer {
+position: absolute;
+bottom: 0;
+height: 57px;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
 }
+
+@media screen and (max-width: 767px) { 
+
+body {
+min-height: 100vh;
+position: relative;
+margin: 0;
+padding-bottom: 114px;
+box-sizing: border-box;
+}
+
+footer {
+position: absolute;
+bottom: 0;
+height: 114px;
+}
+
+}
+
+
+
 </style>
