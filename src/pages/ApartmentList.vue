@@ -161,14 +161,9 @@ export default {
 
                 <!-- Button trigger modal -->
                 <button type="button" class="btn my_btn mb-4 filter" data-bs-toggle="modal"
-                    data-bs-target="#staticBackdrop">
-                    <font-awesome-icon :icon="['fas', 'list']" /> Filters
+                    data-bs-target="#staticBackdrop">Filters
                 </button>
-
             </div>
-
-
-
             <!-- Modal -->
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -188,22 +183,28 @@ export default {
                                     </div>
                                 </div>
                                 <div class="row justify-content-center align-items-center mb-3">
-                                    <div class="col-md-6">
-                                        <label class="form-label m-0">Beds</label>
-                                        <div class="number-input">
-                                            <button @click="decrementBeds"></button>
-                                            <input class="quantity" min="1" name="quantity" type="number"
-                                                v-model.number="store.filters.n_beds" />
-                                            <button @click="store.filters.n_beds++" class="plus"></button>
+                                    <div class="col-md-6 p-0">
+                                        <div class="d-flex align-items-center ">
+
+                                            <label class="form-label m-0 me-2">Beds</label>
+                                            <div class="number-input">
+                                                <button @click="decrementBeds"></button>
+                                                <input class="quantity" min="1" name="quantity" type="number"
+                                                    v-model.number="store.filters.n_beds" />
+                                                <button @click="store.filters.n_beds++" class="plus"></button>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label m-0">Rooms</label>
-                                        <div class="number-input">
-                                            <button @click="decrementRooms"></button>
-                                            <input class="quantity" min="1" name="quantity" type="number"
-                                                v-model.number="store.filters.n_rooms" />
-                                            <button @click="store.filters.n_rooms++" class="plus"></button>
+                                    <div class="col-md-6 p-0">
+                                        <div class="d-flex align-items-center ">
+
+                                            <label class="form-label m-0 me-2">Rooms</label>
+                                            <div class="number-input">
+                                                <button @click="decrementRooms"></button>
+                                                <input class="quantity" min="1" name="quantity" type="number"
+                                                    v-model.number="store.filters.n_rooms" />
+                                                <button @click="store.filters.n_rooms++" class="plus"></button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
