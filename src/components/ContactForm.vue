@@ -86,10 +86,10 @@ export default {
             <!-- Inseire il nome dell host con icona -->
             <!-- <h3>Contatta l'Host: {{ this.store.apartment.user_id }}</h3> -->
 
-            <div class="alert alert-success mb-3" v-if="success">
-                <h5>
+            <div class="alert alert-custom py-1 my-2" v-if="success">
+                <h6 class="text-center fs-6 pt-1">
                     Your message has been sent.
-                </h5>
+                </h6>
             </div>
 
 
