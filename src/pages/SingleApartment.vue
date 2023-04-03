@@ -29,7 +29,12 @@ export default {
             store
         }
     },
+
+    mounted() {
+        window.scrollTo(0, 0); // scorri verso l'alto della pagina
+    },
     methods: {
+
 
         getApartment() {
             axios.get(this.urlAddress + "/api/apartments/" + this.$route.params.slug, {

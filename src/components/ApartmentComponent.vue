@@ -27,7 +27,10 @@ export default {
             return {
 
             }
-        }
+        },
+        mounted() {
+            window.scrollTo(0, 0); // scorri verso l'alto della pagina
+        },
     }
 }
 </script>
@@ -60,10 +63,10 @@ export default {
                 Distance: {{ apartment.distance }} Km
             </p>
             <!-- <ul class=" list-unstyled">
-                                                                                                                                <li class="text-capitalize" v-for="service in apartment.services">
-                                                                                                                                    <span class="fw-bold"> &bull; </span> {{ service.name }}
-                                                                                                                                </li>
-                                                                                                                            </ul> -->
+                                                                                                                                    <li class="text-capitalize" v-for="service in apartment.services">
+                                                                                                                                        <span class="fw-bold"> &bull; </span> {{ service.name }}
+                                                                                                                                    </li>
+                                                                                                                                </ul> -->
         </router-link>
     </div>
 </template>

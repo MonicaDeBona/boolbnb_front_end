@@ -60,30 +60,30 @@ export default {
                         &euro; {{ apartment.n_price }}/night
                     </p>
                 </div>
-                <div class="row py-3 fw-bold">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="my-border  px-3 py-4 rounded-2 d-flex justify-content-center">
+                <div class="row fw-bold g-2 mb-4 justify-content-between">
+                    <div class="col-6 col-sm-3">
+                        <div class="my-border py-4 rounded-2 d-flex justify-content-center">
                             <span class="p-2 my_info">
                                 Rooms: {{ apartment.n_rooms }}
                             </span>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="my-border  px-3 py-4 rounded-2 d-flex justify-content-center">
+                    <div class="col-6 col-sm-3">
+                        <div class="my-border py-4 rounded-2 d-flex justify-content-center">
                             <span class="p-2 my_info">
                                 Beds: {{ apartment.n_beds }}
                             </span>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class=" my-border  px-3 py-4 rounded-2 d-flex justify-content-center">
+                    <div class="col-6 col-sm-3">
+                        <div class=" my-border py-4 rounded-2 d-flex justify-content-center">
                             <span class="p-2 my_info">
                                 Bathrooms: {{ apartment.n_bathrooms }}
                             </span>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class=" my-border  px-3 py-4 rounded-2 d-flex justify-content-center">
+                    <div class="col-6 col-sm-3">
+                        <div class=" my-border py-4 rounded-2 d-flex justify-content-center">
                             <span class="p-2 my_info">
                                 {{ apartment.square_meters }} mq
                             </span>
@@ -97,7 +97,7 @@ export default {
                     <h2 class="pb-2">What this place offers</h2>
                     <div>
                         <span class="fw-bold mb-1" v-for="service in apartment.services">
-                            <ul class="list-unstyled p-0 m-0">
+                            <ul class="list-unstyled">
                                 <li class="text-capitalize mb-2 my_info">
                                     <font-awesome-icon :icon="['fas', 'check']" /> {{ service.name }}
                                 </li>

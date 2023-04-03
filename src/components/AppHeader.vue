@@ -1,4 +1,3 @@
-
 <script>
 import { store } from '../store';
 export default {
@@ -18,19 +17,15 @@ export default {
     },
 }
 </script>
-
 <template>
     <header>
         <nav class="navbar navbar-expand-lg">
-
             <div class="container-fluid">
-
-                <button class="navbar-toggler ms-auto me-2 me-sm-4" type="button" data-bs-toggle="collapse"
+                <button class="navbar-toggler ms-auto me-2 me-sm-4 border-0" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav text-light w-100 align-items-center">
                         <li class="nav-item">
@@ -52,13 +47,10 @@ export default {
                         </li>
                     </ul>
                 </div>
-
             </div>
         </nav>
     </header>
 </template>
-
-
 <style scoped lang="scss">
 @use "../styles/general.scss" as *;
 
@@ -67,7 +59,6 @@ header {
 }
 
 nav {
-
     a {
         font-weight: bold;
 
@@ -78,9 +69,11 @@ nav {
 }
 
 button.navbar-toggler {
-    // border-color: $main-color;
-    color: $main-color;
+    color: #ffcb0000;
 
+    &:focus {
+        border: none;
+    }
 }
 
 .account-btn {
@@ -91,5 +84,9 @@ button.navbar-toggler {
         color: white;
         background-color: $btn-hover;
     }
+}
+
+button.navbar-toggler:focus {
+    border: none;
 }
 </style>
