@@ -69,7 +69,7 @@ export default {
 <template lang="">
     <div class="container py-5 px-0">
         <div class="row mb-3 w-100 rounded-3">
-                <div class="col-12">
+                <div class="col-12 pe-0">
                     <form @submit.prevent="searchApartments" class="d-flex">
                         <div class="position-relative flex-grow-1" id="searchBoxContainer">
                             <input ref="searchInput" id="searchInput" v-model="store.searchQuery" type="text" class="form-control"
